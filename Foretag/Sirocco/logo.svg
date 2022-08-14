@@ -3,7 +3,7 @@
 	<defs>
 		<style>
 			:root {
-				--brand: #22252d;
+				--brand: #7b797b;
 				--stripe: none;
 			}
 		</style>
