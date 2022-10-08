@@ -1,0 +1,27 @@
+<svg viewBox='0 0 500 760' id='logo' xmlns='http://www.w3.org/2000/svg'>
+	<style>
+		:root {
+			--r-stalk: #7b797b;
+			--l-stalk: var(--r-stalk);
+			--stripe: transparent;
+		}
+	</style>
+	<path
+		id='l-stalk'
+		fill='var(--l-stalk)'
+		d='M 0,100 H 100 V 760 H 0 Z M 0,0 H 500 V 100 H 0 Z'
+	 />
+	<path
+		id='r-stalk'
+		fill='var(--r-stalk)'
+		d='M 210,520 H 310 V 640 H 210 Z m 0,-100 H 360 V 520 H 210 Z M 360,210 H 460 V 520 H 360 Z m -150,0 H 360 V 310 H 210 Z'
+	 />
+	<rect
+		id='stripe'
+		fill='var(--stripe)'
+		width='40'
+		height='310'
+		x='460'
+		y='210'
+	 />
+</svg>

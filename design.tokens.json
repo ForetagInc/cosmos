@@ -1,0 +1,22 @@
+{
+	"color": {
+		"$type": "color",
+		"$description": "Color palette",
+		"sonic silver": {
+			"$value": "#7B797B",
+			"$description": "Unique silver color the evoques neutrality"
+		},
+		"han purple": {
+			"$value": "#5D21D2",
+			"$description": "A purple inspired by royalty"
+		},
+		"ghost white": {
+			"$value": "#F1EDF1",
+			"$description": "A smoother shade of white for better legibility"
+		},
+		"eerie black": {
+			"$value": "#191919",
+			"$description": "A tone of black designed for ideal tones"
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"name": "@foretag/cosmos",
+	"private": true,
+	"workspaces": [
+		"packages/*",
+		"themes/*",
+		"sites/*"
+	],
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"moon": "moon"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ForetagInc/cosmos.git"
+	},
+	"license": "MPL-2.0",
+	"bugs": {
+		"url": "https://github.com/ForetagInc/cosmos/issues"
+	},
+	"homepage": "https://github.com/ForetagInc/cosmos#readme",
+	"devDependencies": {
+		"@moonrepo/cli": "^0.16.0"
+	}
+}
