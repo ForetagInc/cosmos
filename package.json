@@ -23,9 +23,13 @@
 	"homepage": "https://github.com/ForetagInc/cosmos#readme",
 	"devDependencies": {
 		"@moonrepo/cli": "latest",
-		"@types/react": "latest"
+		"@types/mdx": "latest",
+		"@types/react": "latest",
+		"@types/react-dom": "latest"
 	},
 	"dependencies": {
+		"react": "^18",
+		"react-dom": "^18",
 		"@master/css": "latest"
 	}
 }

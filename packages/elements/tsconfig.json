@@ -6,6 +6,7 @@
 		"allowUnreachableCode": false,
 		"declaration": false,
 		"experimentalDecorators": true,
+		"skipLibCheck": true,
 		"lib": [
 			"DOM",
 			"ES2017"

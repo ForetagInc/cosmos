@@ -12,7 +12,7 @@
 	"unpkg": "dist/elements/elements.esm.js",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/ionic-team/stencil-component-starter.git"
+		"url": "git+https://github.com/ForetagInc/cosmos.git"
 	},
 	"files": [
 		"dist/",
@@ -23,32 +23,29 @@
 		"build": "stencil build --docs",
 		"start": "stencil build --dev --watch --serve",
 		"generate": "stencil generate",
-		"storybook": "start-storybook -p 6006",
-		"build-storybook": "build-storybook"
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "storybook build"
 	},
 	"dependencies": {
+		"@master/css": "^1.37.2",
 		"@stencil/core": "latest",
-		"@stencil/react-output-target": "latest"
+		"@stencil/react-output-target": "latest",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.19.1",
 		"@pxtrn/storybook-addon-docs-stencil": "latest",
-		"@storybook/addon-a11y": "latest",
-		"@storybook/addon-actions": "latest",
-		"@storybook/addon-essentials": "latest",
-		"@storybook/addon-interactions": "latest",
-		"@storybook/addon-links": "latest",
-		"@storybook/addon-storysource": "latest",
-		"@storybook/addon-toolbars": "latest",
-		"@storybook/builder-vite": "latest",
-		"@storybook/html": "latest",
-		"@storybook/react": "latest",
-		"@storybook/testing-library": "latest",
-		"@storybook/web-components": "latest",
-		"@types/jest": "^27.0.3",
-		"babel-loader": "^8.2.5",
-		"jest": "^27.4.5",
-		"jest-cli": "^27.4.5"
+		"@storybook/addon-a11y": "^7.0.0-alpha.37",
+		"@storybook/addon-essentials": "^7.0.0-alpha.37",
+		"@storybook/addon-interactions": "^7.0.0-alpha.37",
+		"@storybook/addon-links": "^7.0.0-alpha.37",
+		"@storybook/addon-storysource": "^7.0.0-alpha.37",
+		"@storybook/addon-toolbars": "^7.0.0-alpha.37",
+		"@storybook/html": "^7.0.0-alpha.37",
+		"@storybook/html-webpack5": "^7.0.0-alpha.37",
+		"@storybook/builder-vite": "^7.0.0-alpha.37",
+		"@storybook/testing-library": "^0.0.13",
+		"storybook": "^7.0.0-alpha.37"
 	},
 	"overrides": {
 		"jest-mock": "^28.1.0"
