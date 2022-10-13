@@ -21,6 +21,9 @@
 	},
 	"homepage": "https://github.com/ForetagInc/cosmos#readme",
 	"devDependencies": {
-		"@moonrepo/cli": "^0.16.0"
+		"@moonrepo/cli": "latest"
+	},
+	"dependencies": {
+		"@master/css": "latest"
 	}
 }
