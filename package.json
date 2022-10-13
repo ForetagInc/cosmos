@@ -1,5 +1,6 @@
 {
 	"name": "@foretag/cosmos",
+	"description": "Cosmos design system",
 	"private": true,
 	"workspaces": [
 		"packages/*",
@@ -21,7 +22,8 @@
 	},
 	"homepage": "https://github.com/ForetagInc/cosmos#readme",
 	"devDependencies": {
-		"@moonrepo/cli": "latest"
+		"@moonrepo/cli": "latest",
+		"@types/react": "latest"
 	},
 	"dependencies": {
 		"@master/css": "latest"

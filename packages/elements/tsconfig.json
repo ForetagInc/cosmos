@@ -1,0 +1,26 @@
+{
+	"compilerOptions": {
+		"jsx": "react",
+		"jsxFactory": "h",
+		"allowSyntheticDefaultImports": true,
+		"allowUnreachableCode": false,
+		"declaration": false,
+		"experimentalDecorators": true,
+		"lib": [
+			"DOM",
+			"ES2017"
+		],
+		"moduleResolution": "Node",
+		"module": "ESNext",
+		"target": "ES2017",
+		"noUnusedLocals": true,
+		"noUnusedParameters": true
+	},
+	"include": [
+		"src"
+	],
+	"exclude": [
+		"node_modules",
+		"**/*.stories.*"
+	]
+}
