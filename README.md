@@ -1,6 +1,12 @@
 # Cosmos
 
-## System
+Cosmos is a brand guide and design system for Foretag.
+
+## Ecosystem
+#### Web
+- [Elements](https://github.com/ForetagInc/cosmos/tree/master/packages/elements)
+
+#### System
 - [GRUB]()
 - [Cursors]()
 - [Wallpapers]()
@@ -16,7 +22,7 @@ Cosmos is available for various apps and in different formats. Here is a list of
 
 #### Development
 - [CSS]()
-- [Vanilla Extract]()
+- [MasterCSS]()
 - [Storybook]()
 - [mdBook]()
 
@@ -24,7 +30,6 @@ Cosmos is available for various apps and in different formats. Here is a list of
 - [Firefox]()
 #### Messaging
 - [Racket](#) - *enabled by default*
-- [Element]()
 
 #### Productivity
 - [OBS](#) - WIP
