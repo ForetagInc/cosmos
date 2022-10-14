@@ -3,9 +3,7 @@
 	"description": "Cosmos design system",
 	"private": true,
 	"workspaces": [
-		"packages/*",
-		"themes/*",
-		"sites/*"
+		"packages/*"
 	],
 	"version": "1.0.0",
 	"main": "index.js",
@@ -23,13 +21,9 @@
 	"homepage": "https://github.com/ForetagInc/cosmos#readme",
 	"devDependencies": {
 		"@moonrepo/cli": "latest",
-		"@types/mdx": "latest",
-		"@types/react": "latest",
-		"@types/react-dom": "latest"
+		"bun-types": "latest"
 	},
 	"dependencies": {
-		"react": "^18",
-		"react-dom": "^18",
 		"@master/css": "latest"
 	}
 }
