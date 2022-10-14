@@ -18,7 +18,11 @@ module.exports = {
 		'@pxtrn/storybook-addon-docs-stencil',
 	],
 	framework: {
-		'name': '@storybook/html-webpack5',
+		'name': 'storybook-html-vite',
 		'options': {}
+	},
+	core: {
+		disableTelemetry: true,
+		// builder: '@storybook/builder-vite',
 	},
 }
