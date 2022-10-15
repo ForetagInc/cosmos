@@ -1,7 +1,6 @@
 {
 	"compilerOptions": {
 		"jsx": "react",
-		"jsxFactory": "h",
 		"allowSyntheticDefaultImports": true,
 		"allowUnreachableCode": false,
 		"declaration": false,

@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
 	'stories': [
 		'../src/**/*.stories.mdx',
@@ -13,12 +11,12 @@ module.exports = {
 		'@storybook/addon-a11y',
 		'@storybook/addon-storysource',
 		'@storybook/addon-toolbars',
-
-		// Third party addons
-		'@pxtrn/storybook-addon-docs-stencil',
 	],
 	framework: {
-		'name': '@storybook/html-webpack5',
+		'name': '@storybook/react-vite',
 		'options': {}
 	},
+	core: {
+		disableTelemetry: true,
+	}
 }

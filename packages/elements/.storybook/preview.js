@@ -1,14 +1,5 @@
 import '../master.config';
 
-import { extractArgTypes, extractArgTypesFactory, extractComponentDescription, setStencilDocJson } from '@pxtrn/storybook-addon-docs-stencil';
-import JsonDocs from '../dist/docs.json';
-
-import { defineCustomElements } from '../loader';
-
-defineCustomElements();
-
-if (JsonDocs) setStencilDocJson(JsonDocs);
-
 // 👉 Toolbar - Disabled until themes are implemented
 
 export const globalTypes = {
@@ -98,9 +89,4 @@ export const parameters = {
 		viewports
 	},
 	controls,
-	docs: {
-		// extractArgTypes,
-		extractArgTypes: extractArgTypesFactory({ dashCase: false }),
-		extractComponentDescription,
-	},
 };

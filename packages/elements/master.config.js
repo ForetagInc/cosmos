@@ -11,7 +11,7 @@ Style.extend('colors', {
 });
 
 Style.extend('classes', {
-	'primary': 'bg:han-purple f:ghost-white'
+	'primary': 'bg:han-purple f:ghost-white bg:purple-40:hover'
 });
 
 init();

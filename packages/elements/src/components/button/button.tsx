@@ -1,73 +1,71 @@
-import { Component, Element, Prop, h } from '@stencil/core';
+import React, { FC, useRef } from 'react';
 import { ITracking, TSize } from '../../types';
 
 import { cva } from 'class-variance-authority';
 
-const button = cva([
+const buttonClasses = cva([
 	'cursor:pointer outline:none ~all|100ms|ease p:6|12 f:semibold r:4'
 ], {
 	variants: {
 		variant: {
 			primary: [
 				'b:0',
-				'primary',
-				'bg:purple-40:hover',
+				'primary'
 			],
 			secondary: ['bg:white b:1|solid|gray-90 f:eerie-black {bg:gray-90}:hover {bg:gray-20 b:1|solid|gray-10}@dark {bg:gray-10}:hover@dark']
 		}
 	}
 });
 
-@Component({
-	tag: 'element-button',
-})
-export class Button {
-	@Element() button: HTMLButtonElement;
-
+export interface IButtonProps {
 	/**
 	 * Size of the button
 	 */
-	@Prop() size: TSize = 'medium';
+	size?: TSize;
 
 	/**
 	 * Variant of the button
 	 */
-	@Prop() variant: 'primary' | 'secondary' = 'secondary';
+	variant?: 'primary' | 'secondary';
 
 	/**
 	 * Visually disables the button and shows a loading spinner and also disables the button.
 	 */
-	@Prop({ mutable: true, attribute: 'loading' }) isLoading = false;
+	isLoading?: boolean;
 
 	/**
 	 * Visually and functionally disable the Button.
 	 */
-	@Prop({ mutable: true }) disabled = this.isLoading ?? false;
+	disabled?: boolean;
 
 	/**
 	 * Label as a string
 	 */
-	@Prop({ mutable: true }) label = 'Button';
+	label: string;
 
 	/**
 	 * Tracking data related to the `button`'s events
 	 */
-	@Prop() tracking?: ITracking;
-
-	constructor() {
-		console.log({ style: button(this) });
-
-		if (this.tracking) {
-			// .. setup tracking
-		}
-	}
-
-	render() {
-		return <button
-			class={button(this)}
-			disabled={this.disabled || this.isLoading}
-		>
-			{this.label}
-		</button >;
-	}
+	tracking?: ITracking;
 }
+
+export const Button: FC<IButtonProps> = ({ label, ...props }) => {
+	const { disabled, isLoading } = props;
+	const button = useRef<HTMLButtonElement>(null);
+
+	return <button
+		ref={button}
+		className={buttonClasses(props)}
+		disabled={disabled || isLoading}
+	>
+		{label}
+	</button >;
+};
+
+Button.defaultProps = {
+	size: 'medium',
+	variant: 'secondary',
+	isLoading: false,
+	label: 'Button',
+	disabled: false,
+};
