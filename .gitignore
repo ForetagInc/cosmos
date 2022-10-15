@@ -5,6 +5,6 @@ node_modules
 .moon/docker
 
 # Build / Dist
-dist
-www
-loader
+dist/
+www/
+loader/
