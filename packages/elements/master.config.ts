@@ -31,6 +31,8 @@ Style.extend('colors', {
 	'eerie-black': filterColor(tokens.color['eerie black'].$value),
 	'ghost-white': filterColor(tokens.color['ghost white'].$value),
 	'sonic-silver': filterColor(tokens.color['sonic silver'].$value),
+
+	'primary': filterColor(tokens.color['han purple'].$value)
 });
 
 Style.extend('classes', {

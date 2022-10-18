@@ -35,7 +35,8 @@ export const Switch: FC<ISwitchProps> = (props) => {
 			className={switchClasses()}
 			type='checkbox'
 		/>
-		<svg className='width:40 height:24 bg:fade-90 bg:eerie-black@dark rounded ~background-color|.3s cursor:pointer'>
+		<svg
+			className='w:40 h:24 bg:fade-90 bg:eerie-black@dark rounded ~background-color|.3s cursor:pointer'>
 			<rect className='~transform|.1s|ease-out,width|.1s|ease-out drop-shadow(0|2|2|rgba(0,0,0,.2))' x='2' y='2' rx='14' width='20' height='20' fill='#fff' />
 		</svg>
 	</label>;

@@ -7,4 +7,4 @@ export default {
 	component: Switch,
 };
 
-export const Primary = () => <Switch />;
+export const Default = () => <Switch />;

@@ -23,13 +23,12 @@ const buttonClasses = cva([
 		},
 		variant: {
 			primary: [
-				'b:0',
-				'primary'
+				'bg:primary f:ghost-white b:0',
+				'bg:purple-40:hover'
 			],
 			secondary: [
 				'bg:none b:1|solid|han-purple f:han-purple',
-				'{bg:gray-20 b:1|solid|gray-10}@dark',
-				'{bg:gray-10}:hover@dark'
+				'{bg:gray-20}:hover@dark'
 			],
 			tertiary: [
 				'bg:none b:none f:han-purple t:underline'
