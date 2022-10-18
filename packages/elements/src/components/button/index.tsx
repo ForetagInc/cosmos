@@ -26,7 +26,11 @@ const buttonClasses = cva([
 				'b:0',
 				'primary'
 			],
-			secondary: ['bg:white b:1|solid|gray-90 f:eerie-black {bg:gray-90}:hover {bg:gray-20 b:1|solid|gray-10}@dark {bg:gray-10}:hover@dark']
+			secondary: [
+				'bg:none b:1|solid|han-purple f:han-purple',
+				'{bg:gray-20 b:1|solid|gray-10}@dark',
+				'{bg:gray-10}:hover@dark'
+			]
 		}
 	}
 });

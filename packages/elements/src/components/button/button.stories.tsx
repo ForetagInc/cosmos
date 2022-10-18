@@ -8,3 +8,5 @@ export default {
 };
 
 export const Primary = () => <Button label='Primary' variant='primary' />;
+
+export const secondary = () => <Button label='Secondary' variant='secondary' />
