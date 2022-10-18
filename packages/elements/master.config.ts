@@ -36,7 +36,9 @@ Style.extend('colors', {
 });
 
 Style.extend('classes', {
-	'primary': 'bg:han-purple f:ghost-white bg:purple-40:hover'
+	'primary': 'bg:han-purple f:ghost-white bg:purple-40:hover',
+
+	'radius-md': 'r:8',
 });
 
 init();
