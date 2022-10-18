@@ -1,12 +1,26 @@
 import React, { FC, useRef } from 'react';
-import { ITracking, TSize } from '../../types';
+import { cva, type VariantProps } from 'class-variance-authority';
 
-import { cva } from 'class-variance-authority';
+export interface IButtonProps extends VariantProps<typeof buttonClasses> {
+	/**
+	 * Label as a string
+	 */
+	label: string;
+}
 
 const buttonClasses = cva([
 	'cursor:pointer outline:none ~all|100ms|ease p:6|12 f:semibold r:4'
 ], {
 	variants: {
+		disabled: { true: ['pointer:disabled'] },
+		isLoading: { true: ['pointer:disabled'] },
+		size: {
+			micro: ['p:4'],
+			small: ['p:6'],
+			medium: ['p:8'],
+			large: ['p:10'],
+			macro: ['p:12'],
+		},
 		variant: {
 			primary: [
 				'b:0',
@@ -16,38 +30,6 @@ const buttonClasses = cva([
 		}
 	}
 });
-
-export interface IButtonProps {
-	/**
-	 * Size of the button
-	 */
-	size?: TSize;
-
-	/**
-	 * Variant of the button
-	 */
-	variant?: 'primary' | 'secondary';
-
-	/**
-	 * Visually disables the button and shows a loading spinner and also disables the button.
-	 */
-	isLoading?: boolean;
-
-	/**
-	 * Visually and functionally disable the Button.
-	 */
-	disabled?: boolean;
-
-	/**
-	 * Label as a string
-	 */
-	label: string;
-
-	/**
-	 * Tracking data related to the `button`'s events
-	 */
-	tracking?: ITracking;
-}
 
 export const Button: FC<IButtonProps> = ({ label, ...props }) => {
 	const { disabled, isLoading } = props;
@@ -66,6 +48,6 @@ Button.defaultProps = {
 	size: 'medium',
 	variant: 'secondary',
 	isLoading: false,
-	label: 'Button',
 	disabled: false,
+	label: 'Button',
 };
