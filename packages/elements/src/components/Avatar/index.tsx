@@ -10,12 +10,13 @@ const size = {
 };
 
 const circled = {
-	true: 'rounded'
+	true: 'rounded',
+	false: 'radius-md'
 };
 
 const avatarClasses = cva(
 	[
-		'bg:ghost-white square radius-md f:10',
+		'bg:ghost-white square f:10',
 		'text:center',
 		'{bg:eerie-black;f:ghost-white}@dark'
 	],
@@ -28,9 +29,7 @@ const avatarClasses = cva(
 );
 
 const avatarImageClasses = cva(
-	[
-		'radius-md'
-	],
+	[],
 	{
 		variants: {
 			size,

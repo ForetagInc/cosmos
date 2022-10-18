@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Story, StoryObj, StoryFn } from '@storybook/react';
+import type { StoryObj, StoryFn } from '@storybook/react';
 import { Avatar, IAvatarProps } from '.';
 
 export default {
@@ -18,7 +18,6 @@ Image.args = {
 
 export const Circled: StoryObj<typeof Template> = Template.bind({});
 Circled.args = {
-	username: 'User',
 	src: 'https://i.pravatar.cc/150',
 	circled: true,
 };
