@@ -89,4 +89,9 @@ export const parameters = {
 		viewports
 	},
 	controls,
+	options: {
+		storySort: {
+			order: ['Cosmos', 'Components'],
+		}
+	}
 };
