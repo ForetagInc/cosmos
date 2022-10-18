@@ -30,6 +30,9 @@ const buttonClasses = cva([
 				'bg:none b:1|solid|han-purple f:han-purple',
 				'{bg:gray-20 b:1|solid|gray-10}@dark',
 				'{bg:gray-10}:hover@dark'
+			],
+			tertiary: [
+				'bg:none b:none f:han-purple t:underline'
 			]
 		}
 	}

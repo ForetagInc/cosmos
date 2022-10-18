@@ -1,0 +1,29 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs';
+import tokens from '../../../../design.tokens.json';
+
+<Meta title='Colors' />
+
+# Colors
+
+The Cosmos color palette
+
+<ColorPalette>
+	<ColorItem
+		title='Monotones'
+		subtitle='color.monotone'
+		colors={{ 
+			GhostWhite: tokens.color['ghost white'].$value,
+			EerieBlack: tokens.color['eerie black'].$value
+		}}
+	/>
+	<ColorItem 
+		title='Sonic Silver' 
+		subtitle='color.sonic-silver' 
+		colors={{ SonicSilver: tokens.color['sonic silver'].$value }} 
+	/>
+	<ColorItem 
+		title='Han Purple' 
+		subtitle='color.han-purple' 
+		colors={{ HanPurple: tokens.color['han purple'].$value }} 
+	/>
+</ColorPalette>

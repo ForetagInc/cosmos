@@ -9,4 +9,6 @@ export default {
 
 export const Primary = () => <Button label='Primary' variant='primary' />;
 
-export const secondary = () => <Button label='Secondary' variant='secondary' />
+export const Secondary = () => <Button label='Secondary' variant='secondary' />
+
+export const Tertiary = () => <Button label='Secondary' variant='tertiary' />
