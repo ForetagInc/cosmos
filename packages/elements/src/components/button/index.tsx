@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react';
+import React, { forwardRef } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 export interface IButtonProps extends VariantProps<typeof buttonClasses> {
@@ -37,18 +37,23 @@ const buttonClasses = cva([
 	}
 });
 
-export const Button: FC<IButtonProps> = ({ label, ...props }) => {
-	const { disabled, isLoading } = props;
-	const button = useRef<HTMLButtonElement>(null);
+export const Button = forwardRef<HTMLButtonElement, IButtonProps>(
+	({ label, ...props }, button) => {
+		const { disabled, isLoading } = props;
 
-	return <button
-		ref={button}
-		className={buttonClasses(props)}
-		disabled={disabled || isLoading}
-	>
-		{label}
-	</button >;
-};
+		return <button
+			ref={button}
+			className={buttonClasses(props)}
+			disabled={disabled || isLoading}
+			role='button'
+			data-testid='button'
+		>
+			{label}
+		</button >;
+	}
+);
+
+Button.displayName = 'Button';
 
 Button.defaultProps = {
 	size: 'medium',
