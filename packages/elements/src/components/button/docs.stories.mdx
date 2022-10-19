@@ -1,12 +1,32 @@
-import { Canvas, Meta, Story, ArgsTable } from "@storybook/addon-docs";
+import { Meta, ArgsTable } from '@storybook/blocks';
 import { Button } from './';
 
 <Meta 
 	title='Elements/Button'
-	component={Button}
+	of={Button}
 />
 
 # Button
+
+A button allows us to highlight actions in the product and make them easily perceived and achievable through just one click.
+
+### When to use it
+
+Use buttons when users need to either navigate through a product or perform a specific action.
+
+### Usage guidelines
+
+- **Do** always label a button in a clear and understandable way
+- **Do** always think about the priority of the action to be taken when choosing a variant of button
+- **Do** position buttons in a predictable and coherent way throughout the product
+- **Do** combine different button types if you have more than one button in a specific screen
+- **Do** use a loading state to provide feedback for our user when the action revolves around saving or inputting information, especially when it could take some seconds
+
+### Content Guidelines
+
+- **Do** always start the label with an actionable verb accompanied by a noun to provide enough context (example: "Confirm order"). The only exceptions are the following common actions: "Save"; "Cancel"; and "Close"
+- **Do** keep the label to a maximum of 3 words
+- **Do** not capitalize all words of the label, just the first word or brand/product words (such as Apple Pay, for example)
 
 ## Args
 <ArgsTable of={Button} />

@@ -1,7 +1,7 @@
 module.exports = {
 	'stories': [
-		'../src/**/*.stories.mdx',
-		'../src/**/*.stories.@(js|jsx|ts|tsx)'
+		'../src/**/*.mdx',
+		'../src/**/*.stories.@(js|jsx|ts|tsx)',
 	],
 	'addons': [
 		'@storybook/addon-links',
@@ -18,5 +18,5 @@ module.exports = {
 	},
 	core: {
 		disableTelemetry: true,
-	}
+	},
 }
