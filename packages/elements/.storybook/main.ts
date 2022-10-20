@@ -12,6 +12,9 @@ module.exports = {
 		'@storybook/addon-storysource',
 		'@storybook/addon-toolbars',
 	],
+	features: {
+		interactionsDebugger: true,
+	},
 	framework: {
 		'name': '@storybook/react-vite',
 		'options': {}
