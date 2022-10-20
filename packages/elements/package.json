@@ -1,15 +1,7 @@
 {
 	"name": "@foretag/elements",
 	"version": "0.0.1",
-	"description": "Stencil Component Starter",
-	"main": "dist/index.cjs.js",
-	"module": "dist/index.js",
-	"es2015": "dist/esm/index.mjs",
-	"es2017": "dist/esm/index.mjs",
-	"types": "dist/types/components.d.ts",
-	"collection": "dist/collection/collection-manifest.json",
-	"collection:main": "dist/collection/index.js",
-	"unpkg": "dist/elements/elements.esm.js",
+	"description": "Elements by Foretag",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/ForetagInc/cosmos.git"
@@ -19,35 +11,38 @@
 		"loader/"
 	],
 	"scripts": {
-		"dev": "stencil build --docs --watch",
-		"build": "stencil build --docs",
-		"start": "stencil build --dev --watch --serve",
-		"generate": "stencil generate",
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build"
 	},
 	"dependencies": {
 		"@design-language/tokens": "latest",
 		"@master/css": "^1.37.2",
+		"@react-aria/focus": "latest",
+		"@react-aria/button": "latest",
+		"@react-aria/interactions": "latest",
+		"@react-aria/utils": "latest",
 		"class-variance-authority": "^0.2.4",
 		"react": "^18",
 		"react-dom": "^18"
 	},
 	"devDependencies": {
-		"@pxtrn/storybook-addon-docs-stencil": "latest",
-		"@storybook/addon-a11y": "^7.0.0-alpha.38",
-		"@storybook/addon-essentials": "^7.0.0-alpha.38",
-		"@storybook/addon-interactions": "^7.0.0-alpha.38",
-		"@storybook/addon-links": "^7.0.0-alpha.38",
-		"@storybook/addon-storysource": "^7.0.0-alpha.38",
-		"@storybook/addon-toolbars": "^7.0.0-alpha.38",
-		"@storybook/builder-vite": "^7.0.0-alpha.38",
-		"@storybook/html": "^7.0.0-alpha.38",
-		"@storybook/html-webpack5": "^7.0.0-alpha.38",
-		"@storybook/react-vite": "^7.0.0-alpha.38",
-		"@storybook/testing-library": "^0.0.13",
+		"@react-types/button": "latest",
+		"@react-types/shared": "latest",
+		"@storybook/addon-a11y": "^7.0.0-alpha.40",
+		"@storybook/addon-essentials": "^7.0.0-alpha.40",
+		"@storybook/addon-interactions": "^7.0.0-alpha.40",
+		"@storybook/addon-links": "^7.0.0-alpha.40",
+		"@storybook/addon-storyshots": "^7.0.0-alpha.40",
+		"@storybook/addon-storysource": "^7.0.0-alpha.40",
+		"@storybook/addon-toolbars": "^7.0.0-alpha.40",
+		"@storybook/builder-vite": "^7.0.0-alpha.40",
+		"@storybook/html": "^7.0.0-alpha.40",
+		"@storybook/html-webpack5": "^7.0.0-alpha.40",
+		"@storybook/jest": "latest",
+		"@storybook/react-vite": "^7.0.0-alpha.40",
+		"@storybook/testing-library": "latest",
 		"@types/react": "^18",
-		"storybook": "^7.0.0-alpha.38"
+		"storybook": "^7.0.0-alpha.40"
 	},
 	"overrides": {
 		"jest-mock": "^28.1.0"
