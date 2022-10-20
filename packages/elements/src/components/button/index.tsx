@@ -1,52 +1,47 @@
 import React, { forwardRef } from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
 
-export interface IButtonProps extends VariantProps<typeof buttonClasses> {
+import { useButton } from '@react-aria/button';
+import { useHover } from '@react-aria/interactions';
+import type { PressEvent } from '@react-types/shared';
+import type { AriaButtonProps } from '@react-types/button';
+
+import { type VariantProps } from 'class-variance-authority';
+
+import { useDOMRef } from '../../utils/dom';
+
+import { buttonClasses } from './styles';
+
+export interface IButtonProps extends
+	AriaButtonProps,
+	VariantProps<typeof buttonClasses> {
 	/**
 	 * Label as a string
 	 */
 	label: string;
 }
 
-const buttonClasses = cva([
-	'cursor:pointer outline:none ~all|100ms|ease p:6|12 f:semibold r:4'
-], {
-	variants: {
-		disabled: { true: ['pointer:disabled'] },
-		isLoading: { true: ['pointer:disabled'] },
-		size: {
-			micro: ['p:4'],
-			small: ['p:6'],
-			medium: ['p:8'],
-			large: ['p:10'],
-			macro: ['p:12'],
-		},
-		variant: {
-			primary: [
-				'bg:primary f:ghost-white b:0',
-				'bg:purple-40:hover'
-			],
-			secondary: [
-				'bg:none b:1|solid|han-purple f:han-purple',
-				'{bg:gray-20}:hover@dark'
-			],
-			tertiary: [
-				'bg:none b:none f:han-purple t:underline'
-			]
-		}
-	}
-});
-
 export const Button = forwardRef<HTMLButtonElement, IButtonProps>(
-	({ label, ...props }, button) => {
-		const { disabled, isLoading } = props;
+	({ label, ...props }, ref) => {
+
+		const {
+			onPress,
+			...btnProps
+		} = props;
+
+		const handlePress = (e: PressEvent) => onPress?.(e);
+
+		const buttonRef = useDOMRef(ref);
+		const { buttonProps } = useButton({
+			...props,
+			onPress: handlePress,
+		}, buttonRef);
 
 		return <button
-			ref={button}
+			ref={ref}
 			className={buttonClasses(props)}
-			disabled={disabled || isLoading}
 			role='button'
 			data-testid='button'
+			{...buttonProps}
 		>
 			{label}
 		</button >;
@@ -59,6 +54,6 @@ Button.defaultProps = {
 	size: 'medium',
 	variant: 'secondary',
 	isLoading: false,
-	disabled: false,
+	isDisabled: false,
 	label: 'Button',
 };
