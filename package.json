@@ -1,12 +1,11 @@
 {
-	"name": "@foretag/cosmos",
-	"description": "Cosmos design system",
+	"name": "cosmos",
 	"private": true,
+	"description": "Cosmos design system",
 	"workspaces": [
 		"packages/*"
 	],
 	"version": "1.0.0",
-	"main": "index.js",
 	"scripts": {
 		"moon": "moon"
 	},
@@ -24,6 +23,6 @@
 		"bun-types": "latest"
 	},
 	"dependencies": {
-		"@master/css": "latest"
+		"@master/css": "beta"
 	}
 }
