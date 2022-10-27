@@ -1,5 +1,3 @@
-import designTokens from '../../../design.tokens.json';
-
 interface IToken {
 	$value: string;
 	$description?: string;
@@ -33,10 +31,8 @@ const processObject = (obj: object, config: object) => {
 	}
 }
 
-const generateMasterConfig = (tokens: object) => {
+export const generateDesignTokens = (tokens: object) => {
 	const config = {};
 	processObject(tokens, config);
 	return config;
 }
-
-generateMasterConfig(designTokens);
