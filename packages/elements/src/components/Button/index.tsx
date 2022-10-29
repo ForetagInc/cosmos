@@ -1,9 +1,5 @@
 import React, { forwardRef } from 'react';
-
-import { useButton } from '@react-aria/button';
-import { useHover } from '@react-aria/interactions';
-import type { PressEvent } from '@react-types/shared';
-import type { AriaButtonProps } from '@react-types/button';
+import { Button as AriaButton } from 'ariakit';
 
 import { type VariantProps } from 'class-variance-authority';
 
@@ -11,9 +7,7 @@ import { useDOMRef } from '../../utils/dom';
 
 import { buttonClasses } from './styles';
 
-export interface IButtonProps extends
-	AriaButtonProps,
-	VariantProps<typeof buttonClasses> {
+export interface IButtonProps extends VariantProps<typeof buttonClasses> {
 	/**
 	 * Label as a string
 	 */
@@ -22,29 +16,15 @@ export interface IButtonProps extends
 
 export const Button = forwardRef<HTMLButtonElement, IButtonProps>(
 	({ label, ...props }, ref) => {
-
-		const {
-			onPress,
-			...btnProps
-		} = props;
-
-		const handlePress = (e: PressEvent) => onPress?.(e);
-
-		const buttonRef = useDOMRef(ref);
-		const { buttonProps } = useButton({
-			...props,
-			onPress: handlePress,
-		}, buttonRef);
-
-		return <button
+		return <AriaButton
 			ref={ref}
 			className={buttonClasses(props)}
 			role='button'
 			data-testid='button'
-			{...buttonProps}
+			{...props}
 		>
 			{label}
-		</button >;
+		</AriaButton>;
 	}
 );
 

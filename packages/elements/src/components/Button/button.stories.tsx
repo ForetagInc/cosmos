@@ -13,9 +13,6 @@ export default {
 const Template: StoryFn<IButtonProps> = (args) =>
 	<Button
 		{...args}
-		onPress={e => {
-			console.log('Button pressed');
-		}}
 	/>;
 
 const tests = async ({ canvasElement }) => {
