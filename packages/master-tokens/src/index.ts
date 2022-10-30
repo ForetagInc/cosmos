@@ -3,11 +3,15 @@ interface IToken {
 	$description?: string;
 }
 
+const formatKey = (key: string) =>
+	key.replaceAll(' ', '-')
+		.replaceAll('_', '-');
+
 const generateColors = (colors: object) => Object
 	.entries(colors)
 	.reduce((masterColors, [key, val]: [key: string, val: IToken]) => {
 		if (!key.includes('$'))
-			masterColors[key.replace(' ', '-')] = val.$value;
+			masterColors[formatKey(key)] = val.$value;
 		return masterColors;
 	}, {});
 
@@ -20,7 +24,7 @@ const generateSizes = (sizes: object) => {
 			.entries(sizes)
 			.reduce((masterColors, [key, val]: [key: string, val: IToken]) => {
 				if (!key.includes('$'))
-					masterColors[key.replace(' ', '-')] = val.$value;
+					masterColors[formatKey(key)] = val.$value;
 
 				return masterColors;
 			}, {});
