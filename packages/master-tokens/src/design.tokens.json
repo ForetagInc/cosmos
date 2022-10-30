@@ -1,0 +1,68 @@
+{
+	"color": {
+		"$type": "color",
+		"$description": "Color palette",
+		"sonic silver": {
+			"$value": "#7B797B",
+			"$description": "Unique silver color the evoques neutrality"
+		},
+		"han purple": {
+			"$value": "#5D21D2",
+			"$description": "A purple inspired by royalty"
+		},
+		"ghost white": {
+			"$value": "#F1EDF1",
+			"$description": "A smoother shade of white for better legibility"
+		},
+		"eerie black": {
+			"$value": "#191919",
+			"$description": "A tone of black designed for ideal tones"
+		}
+	},
+	"size": {
+		"$type": "size",
+		"$description": "Size and spacing tokens used for positioning, alignment and padding",
+		"1x": {
+			"$value": "2rem"
+		},
+		"2x": {
+			"$value": "4rem"
+		},
+		"3x": {
+			"$value": "8rem"
+		},
+		"4x": {
+			"$value": "12rem"
+		},
+		"5x": {
+			"$value": "16rem"
+		},
+		"6x": {
+			"$value": "20rem"
+		},
+		"7x": {
+			"$value": "24rem"
+		},
+		"8x": {
+			"$value": "32rem"
+		},
+		"9x": {
+			"$value": "40rem"
+		},
+		"10x": {
+			"$value": "48rem"
+		},
+		"11x": {
+			"$value": "56rem"
+		},
+		"12x": {
+			"$value": "64rem"
+		},
+		"13x": {
+			"$value": "80rem"
+		},
+		"14x": {
+			"$value": "96rem"
+		}
+	}
+}

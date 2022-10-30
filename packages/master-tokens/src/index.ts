@@ -11,6 +11,24 @@ const generateColors = (colors: object) => Object
 		return masterColors;
 	}, {});
 
+const generateSizes = (sizes: object) => {
+	const values = {},
+		sizeClasses = ['width', 'height', 'margin', 'padding'];
+
+	for (const sizeClass of sizeClasses) {
+		values[sizeClass] = Object
+			.entries(sizes)
+			.reduce((masterColors, [key, val]: [key: string, val: IToken]) => {
+				if (!key.includes('$'))
+					masterColors[key.replace(' ', '-')] = val.$value;
+
+				return masterColors;
+			}, {});
+	}
+
+	return values;
+};
+
 const processObject = (obj: object, config: object) => {
 	for (const [key, value] of Object.entries(obj)) {
 		if (typeof value === 'object'
@@ -23,6 +41,10 @@ const processObject = (obj: object, config: object) => {
 					config['colors'] = generateColors(value);
 					break;
 
+				case 'size':
+					config['values'] = generateSizes(value);
+					break;
+
 				default:
 					processObject(value, config);
 					break;
@@ -31,7 +53,7 @@ const processObject = (obj: object, config: object) => {
 	}
 }
 
-export const generateDesignTokens = (tokens: object) => {
+export const extendDesignTokens = (tokens: object) => {
 	const config = {};
 	processObject(tokens, config);
 	return config;
