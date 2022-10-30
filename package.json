@@ -20,9 +20,11 @@
 	"homepage": "https://github.com/ForetagInc/cosmos#readme",
 	"devDependencies": {
 		"@moonrepo/cli": "latest",
+		"typescript": "latest",
 		"bun-types": "latest"
 	},
 	"dependencies": {
+		"@design-language/master-tokens": "latest",
 		"@master/css": "beta"
 	}
 }
