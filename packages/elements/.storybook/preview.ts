@@ -1,4 +1,4 @@
-import '../master.config';
+import '@foretag/cosmos/dist/master';
 
 // 👉 Toolbar - Disabled until themes are implemented
 
@@ -91,7 +91,7 @@ export const parameters = {
 	controls,
 	options: {
 		storySort: {
-			order: ['Cosmos', 'Components'],
+			order: ['Brand', 'Design', 'Elements'],
 		}
 	}
 };

@@ -1,8 +1,9 @@
 {
 	"name": "@foretag/cosmos",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "Cosmos design system and brand guide",
 	"main": "dist/index.js",
+	"type": "module",
 	"scripts": {
 		"copy:tokens": "cp ../../design.tokens.json ./src/design.tokens.json",
 		"build": "npm run copy:tokens && tsc --build",

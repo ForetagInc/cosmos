@@ -14,34 +14,25 @@
 		"build-storybook": "storybook build"
 	},
 	"dependencies": {
-		"@design-language/tokens": "latest",
-		"@master/css": "^1.37.2",
-		"@react-aria/focus": "latest",
-		"@react-aria/button": "latest",
-		"@react-aria/interactions": "latest",
-		"@react-aria/utils": "latest",
 		"class-variance-authority": "^0.2.4",
+		"framer-motion": "^7",
 		"react": "^18",
-		"react-dom": "^18"
+		"react-dom": "^18",
+		"react-aria": "latest"
 	},
 	"devDependencies": {
-		"@react-types/button": "latest",
-		"@react-types/shared": "latest",
-		"@storybook/addon-a11y": "^7.0.0-alpha.40",
-		"@storybook/addon-essentials": "^7.0.0-alpha.40",
-		"@storybook/addon-interactions": "^7.0.0-alpha.40",
-		"@storybook/addon-links": "^7.0.0-alpha.40",
-		"@storybook/addon-storyshots": "^7.0.0-alpha.40",
-		"@storybook/addon-storysource": "^7.0.0-alpha.40",
-		"@storybook/addon-toolbars": "^7.0.0-alpha.40",
-		"@storybook/builder-vite": "^7.0.0-alpha.40",
-		"@storybook/html": "^7.0.0-alpha.40",
-		"@storybook/html-webpack5": "^7.0.0-alpha.40",
+		"@storybook/addon-a11y": "^7.0.0-alpha.46",
+		"@storybook/addon-essentials": "^7.0.0-alpha.46",
+		"@storybook/addon-interactions": "^7.0.0-alpha.46",
+		"@storybook/addon-links": "^7.0.0-alpha.46",
+		"@storybook/addon-storyshots": "^7.0.0-alpha.46",
+		"@storybook/addon-storysource": "^7.0.0-alpha.46",
+		"@storybook/addon-toolbars": "^7.0.0-alpha.46",
 		"@storybook/jest": "latest",
-		"@storybook/react-vite": "^7.0.0-alpha.40",
+		"@storybook/react-vite": "^7.0.0-alpha.46",
 		"@storybook/testing-library": "latest",
 		"@types/react": "^18",
-		"storybook": "^7.0.0-alpha.40"
+		"storybook": "^7.0.0-alpha.46"
 	},
 	"overrides": {
 		"jest-mock": "^28.1.0"

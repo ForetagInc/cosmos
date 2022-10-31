@@ -14,30 +14,31 @@ Cosmos is a brand guide and design system for Foretag.
 
 <details>
 	<summary>Ports<summary>
+
 Cosmos is available for various apps and in different formats. Here is a list of them:
 
-#### Code Editors
+**Code Editors**
 - [VSCode]()
 
-#### Design
+**Design**
 - [Penpot]()
 
-#### Development
+**Development**
 - [CSS]()
 - [MasterCSS](https://github.com/ForetagInc/cosmos/tree/master/packages/cosmos)
 - [Storybook]()
 - [mdBook]()
 
-#### Browser
+**Browser**
 - [Firefox]()
 
-#### Messaging
+**Messaging**
 - [Racket](#) - *enabled by default*
 
-#### Productivity
+**Productivity**
 - [OBS](#) - WIP
 
-#### Terminals
+**Terminals**
 - [Warp]()
 </details>
 

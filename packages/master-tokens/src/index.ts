@@ -15,23 +15,14 @@ const generateColors = (colors: object) => Object
 		return masterColors;
 	}, {});
 
-const generateSizes = (sizes: object) => {
-	const values = {},
-		sizeClasses = ['width', 'height', 'margin', 'padding'];
+const generateSizes = (sizes: object) => Object
+	.entries(sizes)
+	.reduce((masterColors, [key, val]: [key: string, val: IToken]) => {
+		if (!key.includes('$'))
+			masterColors[formatKey(key)] = val.$value;
 
-	for (const sizeClass of sizeClasses) {
-		values[sizeClass] = Object
-			.entries(sizes)
-			.reduce((masterColors, [key, val]: [key: string, val: IToken]) => {
-				if (!key.includes('$'))
-					masterColors[formatKey(key)] = val.$value;
-
-				return masterColors;
-			}, {});
-	}
-
-	return values;
-};
+		return masterColors;
+	}, {});
 
 const processObject = (obj: object, config: object) => {
 	for (const [key, value] of Object.entries(obj)) {

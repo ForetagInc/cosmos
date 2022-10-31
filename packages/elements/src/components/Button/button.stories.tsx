@@ -51,7 +51,7 @@ export const Disabled: StoryObj<typeof Template> = Template.bind({});
 
 Disabled.args = {
 	label: 'Disabled',
-	isDisabled: true,
+	disabled: true,
 };
 
 Disabled.play = async (context) => {

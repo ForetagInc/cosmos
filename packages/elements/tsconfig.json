@@ -14,7 +14,13 @@
 		"module": "ESNext",
 		"target": "ES2017",
 		"noUnusedLocals": true,
-		"noUnusedParameters": true
+		"noUnusedParameters": true,
+		"baseUrl": "src",
+		"paths": {
+			"@/utils/*": [
+				"./utils/*"
+			]
+		}
 	},
 	"include": [
 		"src"

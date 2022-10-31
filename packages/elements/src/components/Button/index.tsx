@@ -1,39 +1,56 @@
 import React, { forwardRef } from 'react';
-import { Button as AriaButton } from 'ariakit';
+
+import {
+	type AriaButtonProps,
+	useButton
+} from 'react-aria';
 
 import { type VariantProps } from 'class-variance-authority';
 
-import { useDOMRef } from '../../utils/dom';
-
 import { buttonClasses } from './styles';
 
-export interface IButtonProps extends VariantProps<typeof buttonClasses> {
+import { useDOMRef } from '../../utils/dom';
+
+export interface IButtonProps extends
+	AriaButtonProps,
+	VariantProps<typeof buttonClasses> {
 	/**
 	 * Label as a string
 	 */
 	label: string;
+
+	/**
+	 * 
+	 */
+	disabled: boolean;
 }
 
 export const Button = forwardRef<HTMLButtonElement, IButtonProps>(
 	({ label, ...props }, ref) => {
-		return <AriaButton
+
+		const buttonRef = useDOMRef(ref);
+		const { buttonProps } = useButton({
+			...props,
+		}, buttonRef);
+
+		return <button
 			ref={ref}
 			className={buttonClasses(props)}
 			role='button'
 			data-testid='button'
-			{...props}
+			{...buttonProps}
 		>
 			{label}
-		</AriaButton>;
+		</button>;
 	}
 );
-
-Button.displayName = 'Button';
 
 Button.defaultProps = {
 	size: 'medium',
 	variant: 'secondary',
 	isLoading: false,
-	isDisabled: false,
+	disabled: false,
 	label: 'Button',
 };
+
+Button.displayName = 'Button';
