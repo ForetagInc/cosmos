@@ -1,0 +1,37 @@
+{
+	"manifest_version": 2,
+	"version": "2.1",
+	"name": "foretag",
+	"theme": {
+		"images": {
+			"additional_backgrounds": [
+				"images/bg-000-5672c42860d5b06e1058dc477397f3ef.svg"
+			]
+		},
+		"properties": {
+			"additional_backgrounds_alignment": [
+				"top"
+			],
+			"additional_backgrounds_tiling": [
+				"repeat"
+			]
+		},
+		"colors": {
+			"toolbar": "rgb(25, 25, 25)",
+			"toolbar_text": "rgb(123, 121, 123)",
+			"frame": "rgb(25, 25, 25)",
+			"tab_background_text": "rgb(68, 68, 68)",
+			"toolbar_field": "rgb(28, 28, 28)",
+			"toolbar_field_text": "rgb(241, 237, 241)",
+			"tab_line": "rgb(48, 48, 48)",
+			"popup": "rgb(28, 28, 28)",
+			"popup_text": "rgb(123, 121, 123)",
+			"icons": "rgb(48, 48, 48)",
+			"tab_selected": "rgb(28, 28, 28)",
+			"tab_text": "rgb(241, 237, 241)",
+			"toolbar_field_border": "rgb(48, 48, 48)",
+			"toolbar_field_highlight": "rgb(93, 33, 210)",
+			"tab_loading": "rgb(48, 48, 48)"
+		}
+	}
+}
