@@ -1,0 +1,237 @@
+:root {
+  --fc-page-bg-color: hsl(var(--card));
+  --fc-today-bg-color: transparent;
+}
+
+.fc {
+  @apply h-full bg-card text-foreground;
+  --fc-timegrid-axis-width: 3.25rem;
+  --fc-border-color: var(--surface-border-base);
+}
+
+.calendar-shell .fc {
+  @apply min-h-0 flex-1;
+}
+
+.calendar-shell .fc-scrollgrid {
+  @apply h-full;
+  border: 0 !important;
+}
+
+.fc-view-harness,
+.fc-view-harness-active {
+  @apply min-h-0 flex-1;
+}
+
+.fc-theme-standard th {
+  @apply border-border;
+}
+
+.fc-theme-standard td {
+  @apply border-border;
+}
+
+/* Setting header size */
+
+.fc-col-header-cell-cushion {
+  @apply flex min-h-12 w-full items-start px-2 py-1;
+}
+
+/* Setting left time size */
+
+.fc-timegrid-slot {
+  @apply h-6;
+}
+
+.fc-timegrid-slot-label-cushion {
+  @apply px-2 text-xs font-light text-muted-foreground;
+}
+
+.fc-timegrid-axis,
+.fc-scrollgrid-sync-table .fc-col-header-cell {
+  @apply bg-muted/30;
+}
+
+
+/* Setting cell colors */
+
+td.fc-daygrid-day.fc-day {
+  @apply hover:bg-secondary;
+}
+
+td.fc-daygrid-day.fc-day.fc-day-today {
+  @apply bg-accent/35;
+}
+
+.fc-day-today {
+  @apply bg-inherit;
+}
+
+.fc .fc-timegrid-col.fc-day-today {
+  @apply bg-accent/20;
+}
+
+.fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-number {
+  @apply text-foreground;
+}
+
+.fc .fc-daygrid-day.fc-day-selected {
+  @apply bg-accent/45;
+}
+
+.fc .fc-daygrid-day.fc-day-selected .fc-daygrid-day-number {
+  @apply text-foreground;
+}
+
+.fc-day-other {
+  @apply bg-muted/25 dark:bg-muted/20;
+}
+
+.fc .fc-day-other .fc-daygrid-day-number {
+  @apply text-muted-foreground/75;
+}
+
+.fc .fc-day-other .fc-daygrid-day-frame {
+  @apply opacity-90;
+}
+
+.fc-daygrid-day-top {
+  @apply flex flex-row h-8 w-full items-center;
+}
+
+.fc-daygrid-dot-event {
+  @apply hover:bg-blue-50;
+}
+
+.fc-daygrid-event-harness {
+  @apply pr-1 transition-all hover:scale-[1.02] hover:cursor-pointer hover:bg-none;
+}
+
+.fc-timegrid-event-harness {
+  @apply hover:bg-none hover:cursor-pointer;
+}
+
+.fc-event-main {
+  @apply flex h-full w-full;
+}
+
+.fc-event {
+  @apply flex min-w-full rounded-md border-0 shadow-sm;
+}
+
+.fc-daygrid-event {
+  @apply mx-1;
+}
+
+.fc-timegrid-event {
+  @apply px-1 py-0.5;
+}
+
+td.fc-daygrid-day.fc-day {
+  pointer-events: auto;
+}
+
+.fc-event {
+  pointer-events: all;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.fc-daygrid-event-harness {
+  pointer-events: all;
+}
+
+.fc-daygrid-day-top {
+  pointer-events: auto;
+}
+
+.fc .fc-daygrid-day-events {
+  @apply mt-1 space-y-1;
+}
+
+.fc .fc-daygrid-more-link {
+  @apply text-[11px] text-muted-foreground hover:underline;
+  pointer-events: auto;
+}
+
+/* We use the app Popover for month +N more, not FullCalendar's */
+.fc .fc-popover {
+  display: none !important;
+}
+
+.fc .fc-timegrid-slot-lane {
+  @apply border-border/60;
+}
+
+.fc .fc-timegrid-now-indicator-line {
+  @apply border-red-500;
+}
+
+.fc .fc-timegrid-now-indicator-arrow {
+  @apply border-red-500;
+}
+
+.fc .fc-timegrid-week-number,
+.fc .fc-daygrid-week-number {
+  @apply rounded-md bg-accent px-1.5 py-0.5 text-[10px] text-muted-foreground;
+}
+
+.fc .fc-daygrid-week-number {
+  @apply mx-1;
+  top: 0.25rem !important;
+}
+
+.fc-direction-ltr .fc .fc-daygrid-week-number {
+  left: 0.25rem !important;
+}
+
+.fc-direction-rtl .fc .fc-daygrid-week-number {
+  right: 0.25rem !important;
+}
+
+.fc .fc-col-header-cell {
+  @apply bg-muted/30;
+}
+
+.fc .fc-toolbar-title {
+  @apply font-semibold text-foreground text-sm;
+}
+
+@media (max-width: 767px) {
+  .fc-col-header-cell-cushion {
+    @apply min-h-10 px-1 py-1 text-[11px];
+  }
+
+  .fc .fc-timegrid-axis-cushion {
+    @apply px-1 text-[10px];
+  }
+
+  .fc .fc-timegrid-slot-label-cushion {
+    @apply px-1 text-[10px];
+  }
+
+  .fc-timegrid-slot {
+    @apply h-5;
+  }
+
+  .fc .fc-daygrid-day-top {
+    @apply h-7;
+  }
+
+  .fc-daygrid-event-harness {
+    @apply pr-1;
+  }
+
+  .fc-daygrid-event {
+    @apply mx-0.5;
+  }
+
+  .fc-event {
+    @apply rounded-sm;
+  }
+
+  .fc .fc-timegrid-week-number,
+  .fc .fc-daygrid-week-number {
+    @apply px-1 py-0 text-[9px];
+  }
+}

@@ -1,0 +1,21 @@
+node_modules
+bun.lock
+.DS_Store
+.env
+.env.*
+!.env.example
+
+# Build outputs
+dist
+storybook-static
+packages/cosmos/storybook-static
+coverage
+playwright-report
+test-results
+
+# TanStack/Cloudflare
+.tanstack
+.wrangler
+
+# TypeScript
+*.tsbuildinfo

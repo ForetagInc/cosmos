@@ -1,0 +1,116 @@
+:root[data-theme='graphene'],
+[data-theme='graphene'] {
+	--theme-background: 222 24% 8%;
+	--theme-foreground: 220 20% 93%;
+	--theme-field: 222 17% 14%;
+	--theme-card: 222 18% 11%;
+	--theme-card-foreground: 220 20% 93%;
+	--theme-popover: 222 18% 11%;
+	--theme-popover-foreground: 220 20% 93%;
+	--theme-primary: 222 12% 30%;
+	--theme-primary-foreground: 220 20% 95%;
+	--theme-secondary: 222 15% 16%;
+	--theme-secondary-foreground: 220 18% 88%;
+	--theme-muted: 222 15% 16%;
+	--theme-muted-foreground: 220 10% 63%;
+	--theme-accent: 222 16% 18%;
+	--theme-accent-foreground: 220 18% 90%;
+	--theme-destructive: 344 84% 45%;
+	--theme-destructive-foreground: 0 0% 98%;
+	--theme-border: 222 13% 22%;
+	--theme-input: 222 13% 22%;
+	--theme-ring: 214 90% 64%;
+	--theme-chart-1: 214 90% 64%;
+	--theme-chart-2: 194 78% 55%;
+	--theme-chart-3: 167 64% 46%;
+	--theme-chart-4: 36 92% 58%;
+	--theme-chart-5: 345 70% 58%;
+	--theme-sidebar: 222 22% 9%;
+	--theme-sidebar-foreground: 220 14% 78%;
+	--theme-sidebar-primary: 214 90% 64%;
+	--theme-sidebar-primary-foreground: 222 24% 10%;
+	--theme-sidebar-accent: 222 14% 16%;
+	--theme-sidebar-accent-foreground: 220 16% 90%;
+	--theme-sidebar-border: 222 12% 20%;
+	--theme-sidebar-ring: 214 90% 64%;
+	--theme-sidebar-icon-muted: 220 10% 61%;
+	--theme-sidebar-icon-active: 220 16% 89%;
+
+	--ui-bg-subtle: color-mix(
+		in oklab,
+		hsl(var(--theme-sidebar)),
+		hsl(var(--theme-foreground)) 5%
+	);
+	--ui-bg-component: color-mix(
+		in oklab,
+		hsl(var(--theme-card)),
+		hsl(var(--theme-foreground)) 2%
+	);
+	--ui-border-base: color-mix(
+		in oklab,
+		hsl(var(--theme-sidebar-border)),
+		transparent 16%
+	);
+	--ui-fg-subtle: color-mix(
+		in oklab,
+		hsl(var(--theme-sidebar-foreground)),
+		transparent 22%
+	);
+
+	--button-primary-bg: hsl(224 17% 13%);
+	--button-primary-border: hsl(224 17% 9%);
+	--button-primary-bg-hover: hsl(224 17% 16%);
+	--button-primary-bg-active: hsl(224 17% 11%);
+	--button-shadow-primary: inset 0 1px 0 rgb(255 255 255 / 0.08),
+		0 1px 2px rgb(0 0 0 / 0.34);
+	--button-shadow-secondary: 0 1px 2px rgb(0 0 0 / 0.32);
+	--button-secondary-bg: hsl(224 10% 22%);
+	--button-secondary-border: hsl(224 12% 14%);
+	--button-secondary-border-hover: hsl(224 12% 16%);
+	--button-secondary-border-active: hsl(224 12% 12%);
+	--button-secondary-bg-hover: hsl(224 10% 25%);
+	--button-secondary-bg-active: hsl(224 10% 20%);
+	--button-secondary-fg: hsl(225 10% 89%);
+	--button-shadow-secondary-active: 0 1px 1px rgb(0 0 0 / 0.36);
+	--button-overlay-secondary: linear-gradient(
+		to bottom,
+		transparent,
+		transparent
+	);
+	--button-overlay-soft: linear-gradient(
+		to bottom,
+		rgb(255 255 255 / 0.04),
+		transparent
+	);
+	--button-overlay-strong: linear-gradient(
+		to bottom,
+		rgb(255 255 255 / 0.06),
+		transparent
+	);
+	--label-fg: hsl(var(--theme-muted-foreground));
+	--surface-border-base: rgb(255 255 255 / 0.08);
+	--borders-base: 0px 0px 0px 1px rgb(255 255 255 / 0.08),
+		0px 1px 2px rgb(0 0 0 / 0.28);
+	--borders-interactive-with-active: 0px 0px 0px 1px hsl(var(--theme-ring)),
+		0px 0px 0px 3px color-mix(in oklab, hsl(var(--theme-ring)), transparent 72%);
+	--elevation-flyout: 0px 0px 0px 1px rgb(255 255 255 / 0.08),
+		0px 10px 28px rgb(0 0 0 / 0.42);
+	--elevation-modal: 0px 0px 0px 1px rgb(255 255 255 / 0.1),
+		0px 16px 40px rgb(0 0 0 / 0.48);
+	--card-shadow: 0px 0px 0px 1px rgb(255 255 255 / 0.08),
+		0px 2px 6px rgb(0 0 0 / 0.24);
+	--sidebar-stroke: color-mix(
+		in oklab,
+		hsl(var(--theme-sidebar-border)),
+		transparent 18%
+	);
+	--sidebar-panel-shadow: 0 0 0 1px var(--sidebar-stroke),
+		0 10px 30px rgb(0 0 0 / 0.36);
+	--input-bg: hsl(var(--theme-field));
+	--input-bg-hover: color-mix(
+		in oklab,
+		hsl(var(--theme-field)),
+		hsl(var(--theme-foreground)) 5%
+	);
+	--dialog-overlay-bg: rgb(8 10 14 / 0.68);
+}

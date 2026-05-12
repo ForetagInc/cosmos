@@ -1,0 +1,37 @@
+:root[data-theme='euclid'],
+[data-theme='euclid'] {
+	--theme-background: 210 20% 99%;
+	--theme-foreground: 224 30% 14%;
+	--theme-card: 0 0% 100%;
+	--theme-card-foreground: 224 30% 14%;
+	--theme-popover: 0 0% 100%;
+	--theme-popover-foreground: 224 30% 14%;
+	--theme-primary: 217 91% 60%;
+	--theme-primary-foreground: 0 0% 100%;
+	--theme-secondary: 214 32% 94%;
+	--theme-secondary-foreground: 224 30% 14%;
+	--theme-muted: 214 32% 94%;
+	--theme-muted-foreground: 218 11% 46%;
+	--theme-accent: 214 32% 94%;
+	--theme-accent-foreground: 224 30% 14%;
+	--theme-destructive: 0 72% 51%;
+	--theme-destructive-foreground: 0 0% 100%;
+	--theme-border: 214 26% 88%;
+	--theme-input: 214 26% 88%;
+	--theme-ring: 217 91% 60%;
+	--theme-chart-1: 217 91% 60%;
+	--theme-chart-2: 173 58% 39%;
+	--theme-chart-3: 35 92% 56%;
+	--theme-chart-4: 262 83% 58%;
+	--theme-chart-5: 354 70% 54%;
+	--theme-sidebar: 210 20% 97%;
+	--theme-sidebar-foreground: 223 26% 28%;
+	--theme-sidebar-primary: 217 91% 60%;
+	--theme-sidebar-primary-foreground: 0 0% 100%;
+	--theme-sidebar-accent: 214 32% 93%;
+	--theme-sidebar-accent-foreground: 223 26% 28%;
+	--theme-sidebar-border: 214 22% 85%;
+	--theme-sidebar-ring: 217 91% 60%;
+	--theme-sidebar-icon-muted: 222 14% 43%;
+	--theme-sidebar-icon-active: 217 91% 45%;
+}

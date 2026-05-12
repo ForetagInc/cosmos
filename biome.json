@@ -1,0 +1,35 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.4.13/schema.json",
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab"
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single",
+			"semicolons": "always"
+		}
+	},
+	"files": {
+		"includes": [
+			"**",
+			"!**/dist",
+			"!**/apps/design/public/storybook",
+			"!**/coverage",
+			"!**/playwright-report",
+			"!**/test-results",
+			"!**/.tanstack",
+			"!**/.wrangler",
+			"!**/node_modules",
+			"!**/routeTree.gen.ts",
+			"!**/*.css",
+			"!**/*.html"
+		]
+	}
+}
