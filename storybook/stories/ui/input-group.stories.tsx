@@ -8,18 +8,26 @@ import {
 } from '@foretag/cosmos';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-const meta: Meta = {
+const meta = {
 	title: 'Primitives/InputGroup',
-};
+	component: InputGroupAddon,
+	argTypes: {
+		align: {
+			control: 'select',
+			options: ['inline-start', 'inline-end', 'block-start', 'block-end'],
+		},
+	},
+	args: { align: 'inline-start' },
+} satisfies Meta<typeof InputGroupAddon>;
 
 export default meta;
 
-type Story = StoryObj;
+type Story = StoryObj<typeof meta>;
 
 export const WithPrefix: Story = {
-	render: () => (
+	render: (args) => (
 		<InputGroup style={{ width: 380 }}>
-			<InputGroupAddon>
+			<InputGroupAddon {...args}>
 				<InputGroupText>foretag.co/</InputGroupText>
 			</InputGroupAddon>
 			<InputGroupInput placeholder="workspace" />
@@ -28,10 +36,11 @@ export const WithPrefix: Story = {
 };
 
 export const WithAction: Story = {
-	render: () => (
+	args: { align: 'inline-end' },
+	render: (args) => (
 		<InputGroup style={{ width: 380 }}>
 			<InputGroupInput placeholder="Search orders" />
-			<InputGroupAddon align="inline-end">
+			<InputGroupAddon {...args}>
 				<InputGroupButton>Search</InputGroupButton>
 			</InputGroupAddon>
 		</InputGroup>

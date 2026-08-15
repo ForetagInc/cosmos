@@ -11,21 +11,30 @@ import {
 } from '@foretag/cosmos';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-const meta: Meta = {
+const meta = {
 	title: 'Primitives/Sheet',
-};
+	component: SheetContent,
+	argTypes: {
+		side: {
+			control: 'select',
+			options: ['top', 'bottom', 'left', 'right'],
+		},
+		size: { control: 'select', options: ['sm', 'md', 'lg', 'xl', '2xl'] },
+	},
+	args: { side: 'right', size: 'sm' },
+} satisfies Meta<typeof SheetContent>;
 
 export default meta;
 
-type Story = StoryObj;
+type Story = StoryObj<typeof meta>;
 
-export const RightSide: Story = {
-	render: () => (
+export const Default: Story = {
+	render: (args) => (
 		<Sheet>
 			<SheetTrigger asChild>
 				<Button variant="outline">Open filters</Button>
 			</SheetTrigger>
-			<SheetContent>
+			<SheetContent {...args}>
 				<SheetHeader>
 					<SheetTitle>Filters</SheetTitle>
 					<SheetDescription>
@@ -37,21 +46,6 @@ export const RightSide: Story = {
 						<Button>Apply</Button>
 					</SheetClose>
 				</SheetFooter>
-			</SheetContent>
-		</Sheet>
-	),
-};
-
-export const LeftSide: Story = {
-	render: () => (
-		<Sheet>
-			<SheetTrigger asChild>
-				<Button variant="outline">Open navigation</Button>
-			</SheetTrigger>
-			<SheetContent side="left">
-				<SheetHeader>
-					<SheetTitle>Navigation</SheetTitle>
-				</SheetHeader>
 			</SheetContent>
 		</Sheet>
 	),

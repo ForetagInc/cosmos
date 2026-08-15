@@ -1,45 +1,54 @@
 import { Button } from '@foretag/cosmos';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-const meta: Meta = {
+const meta = {
 	title: 'Primitives/Button',
-};
+	component: Button,
+	argTypes: {
+		size: {
+			control: 'select',
+			options: ['default', 'sm', 'lg', 'xl', 'icon'],
+		},
+		variant: {
+			control: 'select',
+			options: [
+				'default',
+				'primary',
+				'destructive',
+				'danger',
+				'outline',
+				'secondary',
+				'ghost',
+				'transparent',
+				'link',
+			],
+		},
+		isLoading: { control: 'boolean' },
+		disabled: { control: 'boolean' },
+	},
+	args: {
+		children: 'Button',
+		size: 'default',
+		variant: 'default',
+		isLoading: false,
+		disabled: false,
+	},
+} satisfies Meta<typeof Button>;
 
 export default meta;
 
-type Story = StoryObj;
+type Story = StoryObj<typeof meta>;
 
-export const Variants: Story = {
-	render: () => (
-		<div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-			<Button>Primary</Button>
-			<Button variant="secondary">Secondary</Button>
-			<Button variant="danger">Danger</Button>
-			<Button variant="outline">Outline</Button>
-			<Button variant="ghost">Ghost</Button>
-			<Button variant="link">Link</Button>
-		</div>
-	),
+export const Default: Story = {};
+
+export const Icon: Story = {
+	args: {
+		size: 'icon',
+		children: <i className="ti ti-plus" />,
+		'aria-label': 'Add',
+	},
 };
 
-export const Sizes: Story = {
-	render: () => (
-		<div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-			<Button size="sm">Small</Button>
-			<Button>Default</Button>
-			<Button size="lg">Large</Button>
-			<Button size="icon" aria-label="Add">
-				<i className="ti ti-plus" />
-			</Button>
-		</div>
-	),
-};
-
-export const States: Story = {
-	render: () => (
-		<div style={{ display: 'flex', gap: 12 }}>
-			<Button disabled>Disabled</Button>
-			<Button isLoading>Loading</Button>
-		</div>
-	),
+export const Loading: Story = {
+	args: { isLoading: true, children: 'Saving' },
 };

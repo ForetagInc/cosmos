@@ -9,19 +9,24 @@ import {
 } from '@foretag/cosmos';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-const meta: Meta = {
+const meta = {
 	title: 'Primitives/Empty',
-};
+	component: EmptyMedia,
+	argTypes: {
+		variant: { control: 'select', options: ['default', 'icon'] },
+	},
+	args: { variant: 'icon' },
+} satisfies Meta<typeof EmptyMedia>;
 
 export default meta;
 
-type Story = StoryObj;
+type Story = StoryObj<typeof meta>;
 
 export const NoResults: Story = {
-	render: () => (
+	render: (args) => (
 		<Empty style={{ width: 460 }}>
 			<EmptyHeader>
-				<EmptyMedia>
+				<EmptyMedia {...args}>
 					<i className="ti ti-inbox text-2xl" />
 				</EmptyMedia>
 				<EmptyTitle>No invoices yet</EmptyTitle>

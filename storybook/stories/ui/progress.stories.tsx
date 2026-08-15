@@ -1,20 +1,23 @@
 import { Progress } from '@foretag/cosmos';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-const meta: Meta = {
+const meta = {
 	title: 'Primitives/Progress',
-};
+	component: Progress,
+	argTypes: {
+		value: { control: { type: 'range', min: 0, max: 100, step: 1 } },
+	},
+	args: { value: 35 },
+} satisfies Meta<typeof Progress>;
 
 export default meta;
 
-type Story = StoryObj;
+type Story = StoryObj<typeof meta>;
 
-export const Steps: Story = {
-	render: () => (
-		<div style={{ width: 380, display: 'grid', gap: 16 }}>
-			<Progress value={0} />
-			<Progress value={35} />
-			<Progress value={100} />
+export const Default: Story = {
+	render: (args) => (
+		<div style={{ width: 380 }}>
+			<Progress {...args} />
 		</div>
 	),
 };

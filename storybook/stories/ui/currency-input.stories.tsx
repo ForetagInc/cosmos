@@ -1,27 +1,32 @@
-import { CurrencyInput, Label } from '@foretag/cosmos';
+import { CurrencyInput } from '@foretag/cosmos';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-const meta: Meta = {
+const meta = {
 	title: 'Primitives/CurrencyInput',
-};
+	component: CurrencyInput,
+	argTypes: {
+		size: { control: 'select', options: ['base', 'small'] },
+		code: { control: 'text' },
+		symbol: { control: 'text' },
+		disabled: { control: 'boolean' },
+	},
+	args: {
+		size: 'base',
+		code: 'GBP',
+		symbol: '£',
+		defaultValue: '24.00',
+		disabled: false,
+	},
+} satisfies Meta<typeof CurrencyInput>;
 
 export default meta;
 
-type Story = StoryObj;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-	render: () => (
-		<div style={{ width: 280, display: 'grid', gap: 8 }}>
-			<Label htmlFor="price">Unit price</Label>
-			<CurrencyInput id="price" code="GBP" symbol="£" defaultValue="24.00" />
-		</div>
-	),
-};
-
-export const Small: Story = {
-	render: () => (
+	render: (args) => (
 		<div style={{ width: 280 }}>
-			<CurrencyInput size="small" code="USD" symbol="$" defaultValue="9.99" />
+			<CurrencyInput {...args} />
 		</div>
 	),
 };

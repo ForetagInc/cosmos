@@ -16,14 +16,27 @@ import {
 } from '@foretag/cosmos';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-const meta: Meta = {
+const meta = {
 	title: 'Primitives/Sidebar',
+	component: Sidebar,
 	parameters: { layout: 'fullscreen' },
-};
+	argTypes: {
+		side: { control: 'inline-radio', options: ['left', 'right'] },
+		variant: {
+			control: 'select',
+			options: ['sidebar', 'floating', 'inset'],
+		},
+		collapsible: {
+			control: 'select',
+			options: ['offcanvas', 'icon', 'none'],
+		},
+	},
+	args: { side: 'left', variant: 'sidebar', collapsible: 'offcanvas' },
+} satisfies Meta<typeof Sidebar>;
 
 export default meta;
 
-type Story = StoryObj;
+type Story = StoryObj<typeof meta>;
 
 const sections = [
 	{ label: 'Workspace', items: ['Dashboard', 'Orders', 'Products'] },
@@ -31,9 +44,9 @@ const sections = [
 ];
 
 export const Default: Story = {
-	render: () => (
+	render: (args) => (
 		<SidebarProvider>
-			<Sidebar>
+			<Sidebar {...args}>
 				<SidebarHeader>Foretag</SidebarHeader>
 				<SidebarSeparator />
 				<SidebarContent>

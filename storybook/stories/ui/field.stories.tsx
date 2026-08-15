@@ -13,17 +13,25 @@ import {
 } from '@foretag/cosmos';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-const meta: Meta = {
+const meta = {
 	title: 'Primitives/Field',
-};
+	component: Field,
+	argTypes: {
+		orientation: {
+			control: 'select',
+			options: ['vertical', 'horizontal', 'responsive'],
+		},
+	},
+	args: { orientation: 'vertical' },
+} satisfies Meta<typeof Field>;
 
 export default meta;
 
-type Story = StoryObj;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-	render: () => (
-		<Field style={{ width: 380 }}>
+	render: (args) => (
+		<Field {...args} style={{ width: 380 }}>
 			<FieldLabel htmlFor="company">Company</FieldLabel>
 			<Input id="company" placeholder="Foretag Ltd" />
 			<FieldDescription>Shown on invoices and receipts.</FieldDescription>
@@ -32,8 +40,8 @@ export const Default: Story = {
 };
 
 export const WithError: Story = {
-	render: () => (
-		<Field style={{ width: 380 }}>
+	render: (args) => (
+		<Field {...args} style={{ width: 380 }}>
 			<FieldLabel htmlFor="vat">VAT number</FieldLabel>
 			<Input id="vat" defaultValue="GB-00" aria-invalid />
 			<FieldError>Enter a valid VAT number.</FieldError>
@@ -42,18 +50,18 @@ export const WithError: Story = {
 };
 
 export const Grouped: Story = {
-	render: () => (
+	render: (args) => (
 		<FieldSet style={{ width: 380 }}>
 			<FieldLegend>Billing contact</FieldLegend>
 			<FieldGroup>
-				<Field>
+				<Field {...args}>
 					<FieldContent>
 						<FieldTitle>Primary contact</FieldTitle>
 						<FieldDescription>Receives all billing email.</FieldDescription>
 					</FieldContent>
 				</Field>
 				<FieldSeparator />
-				<Field>
+				<Field {...args}>
 					<FieldLabel htmlFor="billing-email">Email</FieldLabel>
 					<Input id="billing-email" type="email" />
 				</Field>

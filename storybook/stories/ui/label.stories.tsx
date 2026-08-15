@@ -1,19 +1,21 @@
-import { Input, Label } from '@foretag/cosmos';
+import { Label } from '@foretag/cosmos';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-const meta: Meta = {
+const meta = {
 	title: 'Primitives/Label',
-};
+	component: Label,
+	argTypes: {
+		size: {
+			control: 'select',
+			options: ['xsmall', 'small', 'base', 'large'],
+		},
+		weight: { control: 'select', options: ['regular', 'plus'] },
+	},
+	args: { size: 'base', weight: 'regular', children: 'Reference' },
+} satisfies Meta<typeof Label>;
 
 export default meta;
 
-type Story = StoryObj;
+type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-	render: () => (
-		<div style={{ width: 320, display: 'grid', gap: 8 }}>
-			<Label htmlFor="reference">Reference</Label>
-			<Input id="reference" placeholder="INV-0042" />
-		</div>
-	),
-};
+export const Default: Story = {};

@@ -1,5 +1,4 @@
 import {
-	Label,
 	Select,
 	SelectContent,
 	SelectGroup,
@@ -11,19 +10,24 @@ import {
 } from '@foretag/cosmos';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-const meta: Meta = {
+// `size` lives on the Select root and reaches the trigger and items via context.
+const meta = {
 	title: 'Primitives/Select',
-};
+	component: Select,
+	argTypes: {
+		size: { control: 'select', options: ['base', 'small'] },
+	},
+	args: { size: 'base' },
+} satisfies Meta<typeof Select>;
 
 export default meta;
 
-type Story = StoryObj;
+type Story = StoryObj<typeof meta>;
 
 export const Grouped: Story = {
-	render: () => (
-		<div style={{ width: 280, display: 'grid', gap: 8 }}>
-			<Label>Assignee</Label>
-			<Select defaultValue="ada">
+	render: (args) => (
+		<div style={{ width: 280 }}>
+			<Select {...args} defaultValue="ada">
 				<SelectTrigger>
 					<SelectValue placeholder="Select a teammate" />
 				</SelectTrigger>
