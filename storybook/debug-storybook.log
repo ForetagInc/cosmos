@@ -1,0 +1,555 @@
+[17:50:51.511] [INFO] Storybook upgrade - v10.5.8
+[17:50:51.514] [INFO] detect-projects-spinner-start: Detecting projects...
+[17:50:51.514] [DEBUG] Finding Storybook projects...
+[17:50:51.684] [DEBUG] Found 1 Storybook projects
+[17:50:51.686] [INFO] detect-projects-spinner: Detecting projects: 1 projects
+[17:50:51.686] [DEBUG] Getting Storybook data...
+[17:50:51.686] [DEBUG] Getting Storybook info...
+[17:50:51.690] [DEBUG] Getting stories paths...
+[17:50:51.698] [DEBUG] Getting package manager...
+[17:50:51.798] [DEBUG] Getting package.json info for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:51.798] [DEBUG] Getting Storybook version...
+[17:50:51.799] [DEBUG] Detecting CSF factory usage...
+[17:50:51.807] [DEBUG] /storybook/.storybook - Validating before version... 8.6.18
+[17:50:51.807] [DEBUG] /storybook/.storybook - Validating upgrade compatibility...
+[17:50:51.807] [DEBUG] /storybook/.storybook - Fetching NPM version information...
+[17:50:51.807] [DEBUG] Getting CLI versions from NPM for storybook...
+[17:50:51.807] [DEBUG] Executing command: npm info storybook version
+[17:50:51.811] [DEBUG] Getting CLI versions from NPM for storybook@next...
+[17:50:51.811] [DEBUG] Executing command: npm info storybook@next version
+[17:50:52.283] [DEBUG] /storybook/.storybook - Evaluating blockers...
+[17:50:52.290] [DEBUG] Getting installed version for @storybook/experimental-addon-test...
+[17:50:52.295] [DEBUG] Executing command: npm ls --json --depth=99
+[17:50:52.641] [DEBUG] Executing command: npm ls --json --depth=0
+[17:50:52.978] [DEBUG] No installations found for @storybook/experimental-addon-test
+[17:50:52.978] [INFO] detect-projects-spinner-stop: 1 project detected
+[17:50:52.979] [DEBUG] Found 1 valid projects and 0 error projects
+[17:50:52.979] [INFO] Upgrading from [1m8.6.18[22m to [1m10.5.8[22m
+[17:50:52.980] [INFO] upgrade-dependencies-task-start: Fetching versions to update package.json files..
+[17:50:52.980] [DEBUG] Updating dependencies in /storybook/.storybook...
+[17:50:52.980] [INFO] upgrade-dependencies-task: /storybook/package.json
+/package.json
+[17:50:52.980] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:52.980] [DEBUG] {
+  "upgradedDependencies": []
+}
+[17:50:52.980] [DEBUG] {
+  "upgradedDevDependencies": [
+    "@storybook/react@^10.5.8",
+    "@storybook/react-vite@^10.5.8",
+    "storybook@^10.5.8"
+  ]
+}
+[17:50:52.980] [DEBUG] {
+  "upgradedPeerDependencies": []
+}
+[17:50:52.980] [DEBUG] Getting package.json info for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:52.980] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:52.980] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:52.980] [DEBUG] Getting package.json info for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:52.980] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:52.980] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:52.980] [DEBUG] Getting package.json info for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:52.980] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:52.980] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:52.981] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:50:52.981] [DEBUG] {
+  "upgradedDependencies": []
+}
+[17:50:52.981] [DEBUG] {
+  "upgradedDevDependencies": []
+}
+[17:50:52.981] [DEBUG] {
+  "upgradedPeerDependencies": []
+}
+[17:50:52.981] [DEBUG] Getting package.json info for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:50:52.981] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:50:52.981] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:50:52.981] [DEBUG] Getting package.json info for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:50:52.981] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:50:52.981] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:50:52.981] [DEBUG] Getting package.json info for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:50:52.981] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:50:52.981] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:50:52.981] [INFO] upgrade-dependencies-task-success: Updated package versions in package.json files
+[17:50:52.981] [INFO] detect-automigrations-task-start: Detecting automigrations...
+[17:50:52.981] [DEBUG] Starting automigration collection across 1 projects and 24 fixes...
+[17:50:52.982] [INFO] detect-automigrations-task: Checking automigrations for /storybook/.storybook...
+[17:50:52.982] [DEBUG] Processing project: /storybook/.storybook
+[17:50:52.982] [DEBUG] Checking fix eslintPlugin for project /storybook/.storybook...
+[17:50:52.982] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:52.982] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:50:52.982] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:52.982] [DEBUG] Checking fix addon-mdx-gfm-remove for project /storybook/.storybook...
+[17:50:52.982] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:52.982] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:50:52.982] [DEBUG] Checking fix addon-storysource-code-panel for project /storybook/.storybook...
+[17:50:52.982] [DEBUG] Checking fix upgrade-storybook-related-dependencies for project /storybook/.storybook...
+[17:50:52.982] [DEBUG] Checking for incompatible storybook packages...
+[17:50:52.982] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:52.982] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:50:52.983] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:52.983] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:50:52.983] [DEBUG] Getting installed version for @storybook/addon-essentials...
+[17:50:52.983] [DEBUG] Getting installed version for @storybook/test...
+[17:50:52.983] [DEBUG] Executing command: npm ls --json --depth=99
+[17:50:52.986] [DEBUG] Executing command: npm ls --json --depth=99
+[17:50:53.350] [DEBUG] Executing command: npm ls --json --depth=0
+[17:50:53.356] [DEBUG] Executing command: npm ls --json --depth=0
+[17:50:53.693] [DEBUG] An issue occurred while trying to find dependencies metadata using npm: ExecaError: Command failed with exit code 1: npm ls --json '--depth=0'
+
+{
+  "version": "0.1.0",
+  "name": "@foretag/cosmos",
+  "problems": [
+    "invalid: @storybook/react-vite@8.6.18 /Users/chiru/Projects/foretag/cosmos/storybook/node_modules/@storybook/react-vite",
+    "invalid: @storybook/react@8.6.18 /Users/chiru/Projects/foretag/cosmos/storybook/node_modules/@storybook/react",
+    "invalid: storybook@8.6.18 /Users/chiru/Projects/foretag/cosmos/storybook/node_modules/storybook"
+  ],
+  "dependencies": {
+    "@storybook/addon-essentials": {
+      "version": "8.6.14",
+      "overridden": false
+    },
+    "@storybook/react-vite": {
+      "version": "8.6.18",
+      "overridden": false,
+      "invalid": "\"^10.5.8\" from the root project",
+      "problems": [
+        "invalid: @storybook/react-vite@8.6.18 /Users/chiru/Projects/foretag/cosmos/storybook/node_modules/@storybook/react-vite"
+      ]
+    },
+    "@storybook/react": {
+      "version": "8.6.18",
+      "overridden": false,
+      "invalid": "\"^10.5.8\" from the root project",
+      "problems": [
+        "invalid: @storybook/react@8.6.18 /Users/chiru/Projects/foretag/cosmos/storybook/node_modules/@storybook/react"
+      ]
+    },
+    "@storybook/test": {
+      "version": "8.6.15",
+      "overridden": false
+    },
+    "@tabler/icons-webfont": {
+      "version": "3.46.0",
+      "overridden": false
+    },
+    "@tailwindcss/forms": {
+      "version": "0.5.11",
+      "overridden": false
+    },
+    "@tailwindcss/typography": {
+      "version": "0.5.20",
+      "overridden": false
+    },
+    "@tailwindcss/vite": {
+      "version": "4.3.3",
+      "overridden": false
+    },
+    "@testing-library/jest-dom": {
+      "version": "6.10.0",
+      "overridden": false
+    },
+    "@testing-library/react": {
+      "version": "16.3.2",
+      "overridden": false
+    },
+    "@types/react-dom": {
+      "version": "19.2.4",
+      "overridden": false
+    },
+    "@types/react": {
+      "version": "19.2.18",
+      "overridden": false
+    },
+    "@vitejs/plugin-react": {
+      "version": "5.2.0",
+      "overridden": false
+    },
+    "class-variance-authority": {
+      "version": "0.7.1",
+      "overridden": false
+    },
+    "clsx": {
+      "version": "2.1.1",
+      "overridden": false
+    },
+    "cmdk": {
+      "version": "1.1.1",
+      "overridden": false
+    },
+    "date-fns": {
+      "version": "4.4.0",
+      "overridden": false
+    },
+    "jsdom": {
+      "version": "25.0.1",
+      "overridden": false
+    },
+    "next-themes": {
+      "version": "0.4.6",
+      "overridden": false
+    },
+    "radix-ui": {
+      "version": "1.6.7",
+      "overridden": false
+    },
+    "react-day-picker": {
+      "version": "9.14.0",
+      "overridden": false
+    },
+    "react-dom": {
+      "version": "19.2.8",
+      "overridden": false
+    },
+    "react-hook-form": {
+      "version": "7.85.0",
+      "overridden": false
+    },
+    "react-resizable-panels": {
+      "version": "4.12.2",
+      "overridden": false
+    },
+    "react": {
+      "version": "19.2.8",
+      "overridden": false
+    },
+    "sonner": {
+      "version": "2.0.8",
+      "overridden": false
+    },
+    "storybook": {
+      "version": "8.6.18",
+      "overridden": false,
+      "invalid": "\"^10.5.8\" from the root project",
+      "problems": [
+        "invalid: storybook@8.6.18 /Users/chiru/Projects/foretag/cosmos/storybook/node_modules/storybook"
+      ]
+    },
+    "tailwind-merge": {
+      "version": "3.6.0",
+      "overridden": false
+    },
+    "tailwindcss": {
+      "version": "4.3.3",
+      "overridden": false
+    },
+    "tw-animate-css": {
+      "version": "1.4.0",
+      "overridden": false
+    },
+    "typescript": {
+      "version": "5.9.3",
+      "overridden": false
+    },
+    "vite-tsconfig-paths": {
+      "version": "5.1.4",
+      "overridden": false
+    },
+    "vite": {
+      "version": "7.3.6",
+      "overridden": false
+    },
+    "vitest": {
+      "version": "3.2.7",
+      "overridden": false
+    }
+  },
+  "error": {
+    "code": "ELSPROBLEMS",
+    "summary": "invalid: @storybook/react-vite@8.6.18 /Users/chiru/Projects/foretag/cosmos/storybook/node_modules/@storybook/react-vite\ninvalid: @storybook/react@8.6.18 /Users/chiru/Projects/foretag/cosmos/storybook/node_modules/@storybook/react\ninvalid: storybook@8.6.18 /Users/chiru/Projects/foretag/cosmos/storybook/node_modules/storybook",
+    "detail": ""
+  }
+}
+[17:50:53.693] [DEBUG] No installations found for @storybook/test
+[17:50:53.693] [DEBUG] Getting CLI versions from NPM for @storybook/test...
+[17:50:53.693] [DEBUG] Executing command: npm info @storybook/test version
+[17:50:53.695] [DEBUG] An issue occurred while trying to find dependencies metadata using npm: ExecaError: Command failed with exit code 1: npm ls --json '--depth=0'
+
+{
+  "version": "0.1.0",
+  "name": "@foretag/cosmos",
+  "problems": [
+    "invalid: @storybook/react-vite@8.6.18 /Users/chiru/Projects/foretag/cosmos/storybook/node_modules/@storybook/react-vite",
+    "invalid: @storybook/react@8.6.18 /Users/chiru/Projects/foretag/cosmos/storybook/node_modules/@storybook/react",
+    "invalid: storybook@8.6.18 /Users/chiru/Projects/foretag/cosmos/storybook/node_modules/storybook"
+  ],
+  "dependencies": {
+    "@storybook/addon-essentials": {
+      "version": "8.6.14",
+      "overridden": false
+    },
+    "@storybook/react-vite": {
+      "version": "8.6.18",
+      "overridden": false,
+      "invalid": "\"^10.5.8\" from the root project",
+      "problems": [
+        "invalid: @storybook/react-vite@8.6.18 /Users/chiru/Projects/foretag/cosmos/storybook/node_modules/@storybook/react-vite"
+      ]
+    },
+    "@storybook/react": {
+      "version": "8.6.18",
+      "overridden": false,
+      "invalid": "\"^10.5.8\" from the root project",
+      "problems": [
+        "invalid: @storybook/react@8.6.18 /Users/chiru/Projects/foretag/cosmos/storybook/node_modules/@storybook/react"
+      ]
+    },
+    "@storybook/test": {
+      "version": "8.6.15",
+      "overridden": false
+    },
+    "@tabler/icons-webfont": {
+      "version": "3.46.0",
+      "overridden": false
+    },
+    "@tailwindcss/forms": {
+      "version": "0.5.11",
+      "overridden": false
+    },
+    "@tailwindcss/typography": {
+      "version": "0.5.20",
+      "overridden": false
+    },
+    "@tailwindcss/vite": {
+      "version": "4.3.3",
+      "overridden": false
+    },
+    "@testing-library/jest-dom": {
+      "version": "6.10.0",
+      "overridden": false
+    },
+    "@testing-library/react": {
+      "version": "16.3.2",
+      "overridden": false
+    },
+    "@types/react-dom": {
+      "version": "19.2.4",
+      "overridden": false
+    },
+    "@types/react": {
+      "version": "19.2.18",
+      "overridden": false
+    },
+    "@vitejs/plugin-react": {
+      "version": "5.2.0",
+      "overridden": false
+    },
+    "class-variance-authority": {
+      "version": "0.7.1",
+      "overridden": false
+    },
+    "clsx": {
+      "version": "2.1.1",
+      "overridden": false
+    },
+    "cmdk": {
+      "version": "1.1.1",
+      "overridden": false
+    },
+    "date-fns": {
+      "version": "4.4.0",
+      "overridden": false
+    },
+    "jsdom": {
+      "version": "25.0.1",
+      "overridden": false
+    },
+    "next-themes": {
+      "version": "0.4.6",
+      "overridden": false
+    },
+    "radix-ui": {
+      "version": "1.6.7",
+      "overridden": false
+    },
+    "react-day-picker": {
+      "version": "9.14.0",
+      "overridden": false
+    },
+    "react-dom": {
+      "version": "19.2.8",
+      "overridden": false
+    },
+    "react-hook-form": {
+      "version": "7.85.0",
+      "overridden": false
+    },
+    "react-resizable-panels": {
+      "version": "4.12.2",
+      "overridden": false
+    },
+    "react": {
+      "version": "19.2.8",
+      "overridden": false
+    },
+    "sonner": {
+      "version": "2.0.8",
+      "overridden": false
+    },
+    "storybook": {
+      "version": "8.6.18",
+      "overridden": false,
+      "invalid": "\"^10.5.8\" from the root project",
+      "problems": [
+        "invalid: storybook@8.6.18 /Users/chiru/Projects/foretag/cosmos/storybook/node_modules/storybook"
+      ]
+    },
+    "tailwind-merge": {
+      "version": "3.6.0",
+      "overridden": false
+    },
+    "tailwindcss": {
+      "version": "4.3.3",
+      "overridden": false
+    },
+    "tw-animate-css": {
+      "version": "1.4.0",
+      "overridden": false
+    },
+    "typescript": {
+      "version": "5.9.3",
+      "overridden": false
+    },
+    "vite-tsconfig-paths": {
+      "version": "5.1.4",
+      "overridden": false
+    },
+    "vite": {
+      "version": "7.3.6",
+      "overridden": false
+    },
+    "vitest": {
+      "version": "3.2.7",
+      "overridden": false
+    }
+  },
+  "error": {
+    "code": "ELSPROBLEMS",
+    "summary": "invalid: @storybook/react-vite@8.6.18 /Users/chiru/Projects/foretag/cosmos/storybook/node_modules/@storybook/react-vite\ninvalid: @storybook/react@8.6.18 /Users/chiru/Projects/foretag/cosmos/storybook/node_modules/@storybook/react\ninvalid: storybook@8.6.18 /Users/chiru/Projects/foretag/cosmos/storybook/node_modules/storybook",
+    "detail": ""
+  }
+}
+[17:50:53.695] [DEBUG] No installations found for @storybook/addon-essentials
+[17:50:53.695] [DEBUG] Getting CLI versions from NPM for @storybook/addon-essentials...
+[17:50:53.695] [DEBUG] Executing command: npm info @storybook/addon-essentials version
+[17:50:54.691] [DEBUG] Checking fix initial-globals for project /storybook/.storybook...
+[17:50:54.693] [DEBUG] Checking fix addon-globals-api for project /storybook/.storybook...
+[17:50:54.694] [DEBUG] Checking fix addon-a11y-addon-test for project /storybook/.storybook...
+[17:50:54.694] [DEBUG] Checking fix consolidated-imports for project /storybook/.storybook...
+[17:50:54.694] [DEBUG] Checking fix addon-experimental-test for project /storybook/.storybook...
+[17:50:54.694] [DEBUG] Using cached installed version for @storybook/experimental-addon-test...
+[17:50:54.694] [DEBUG] Checking fix rnstorybook-config for project /storybook/.storybook...
+[17:50:54.695] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:54.695] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:50:54.695] [DEBUG] Checking fix rn-ondevice-addons-to-device-addons for project /storybook/.storybook...
+[17:50:54.695] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:54.695] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:50:54.695] [DEBUG] Checking fix migrate-addon-console for project /storybook/.storybook...
+[17:50:54.695] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:54.695] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:50:54.695] [DEBUG] Checking fix nextjs-to-nextjs-vite for project /storybook/.storybook...
+[17:50:54.695] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:54.695] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:50:54.695] [DEBUG] Checking fix angular-to-angular-vite for project /storybook/.storybook...
+[17:50:54.695] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:54.695] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:50:54.695] [DEBUG] Checking fix react-vite-to-tanstack-react for project /storybook/.storybook...
+[17:50:54.695] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:54.695] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:50:54.695] [DEBUG] Checking fix remove-addon-interactions for project /storybook/.storybook...
+[17:50:54.695] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:54.695] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:50:54.695] [DEBUG] Checking fix addon-mcp for project /storybook/.storybook...
+[17:50:54.695] [DEBUG] Checking fix renderer-to-framework for project /storybook/.storybook...
+[17:50:54.695] [DEBUG] Checking fix remove-essential-addons for project /storybook/.storybook...
+[17:50:54.695] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:54.695] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:50:54.695] [DEBUG] Checking fix addon-a11y-parameters for project /storybook/.storybook...
+[17:50:54.695] [DEBUG] Checking fix remove-docs-autodocs for project /storybook/.storybook...
+[17:50:54.698] [DEBUG] Checking fix wrap-getAbsolutePath for project /storybook/.storybook...
+[17:50:54.702] [DEBUG] Checking fix fix-faux-esm-require for project /storybook/.storybook...
+[17:50:54.703] [DEBUG] Checking fix storybookPackageNameConflict for project /storybook/.storybook...
+[17:50:54.703] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:50:54.703] [INFO] detect-automigrations-task: 
+Automigrations detected:
+[17:50:54.704] [INFO] detect-automigrations-task: [32m[32m✔[32m consolidated-imports[39m
+[17:50:54.704] [INFO] detect-automigrations-task: [32m[32m✔[32m renderer-to-framework[39m
+[17:50:54.704] [INFO] detect-automigrations-task: [32m[32m✔[32m remove-essential-addons[39m
+[17:50:54.705] [INFO] detect-automigrations-task: [32m[32m✔[32m wrap-getAbsolutePath[39m
+[17:50:54.705] [INFO] detect-automigrations-task: [32m[32m✔[32m fix-faux-esm-require[39m
+[17:50:54.705] [INFO] detect-automigrations-task-success: 5 automigration(s) detected
+[17:51:25.469] [PROMPT] Select automigrations to run {"choice":["consolidated-imports","renderer-to-framework","remove-essential-addons","wrap-getAbsolutePath","fix-faux-esm-require"]}
+[17:51:25.469] [INFO] automigrate-/storybook/.storybook-task-start: Running automigrations for /storybook/.storybook
+[17:51:25.480] [INFO] automigrate-/storybook/.storybook-task: [32m[32m✔[32m consolidated-imports[39m
+[17:51:25.480] [DEBUG] 
+Migrating @storybook/react to @storybook/react-vite
+[17:51:25.482] [DEBUG] Updating package.json files...
+[17:51:25.483] [INFO] automigrate-/storybook/.storybook-task: [32m[32m✔[32m renderer-to-framework[39m
+[17:51:25.486] [DEBUG] Uninstalling @storybook/addon-essentials
+[17:51:25.486] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:51:25.486] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:51:25.487] [DEBUG] Removing '@storybook/addon-essentials' from main.js addons field.
+[17:51:25.493] [DEBUG] Getting Storybook info...
+[17:51:25.498] [DEBUG] Getting stories paths...
+[17:51:25.499] [DEBUG] Getting package manager...
+[17:51:25.501] [DEBUG] Getting package.json info for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:51:25.501] [DEBUG] Getting Storybook version...
+[17:51:25.501] [DEBUG] Detecting CSF factory usage...
+[17:51:25.506] [INFO] Verifying @storybook/addon-docs
+[17:51:25.506] [DEBUG] Getting dependency version for storybook...
+[17:51:25.506] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:51:25.506] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/package.json...
+[17:51:25.506] [INFO] Installing @storybook/addon-docs@^10.5.8
+[17:51:25.506] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:51:25.506] [DEBUG] Using cached package.json for /Users/chiru/Projects/foretag/cosmos/storybook/package.json...
+[17:51:25.507] [INFO] Adding '@storybook/addon-docs' to the "addons" field in /Users/chiru/Projects/foretag/cosmos/storybook/.storybook/main.ts
+[17:51:25.515] [INFO] automigrate-/storybook/.storybook-task: [32m[32m✔[32m remove-essential-addons[39m
+[17:51:25.521] [INFO] automigrate-/storybook/.storybook-task: [32m[32m✔[32m wrap-getAbsolutePath[39m
+[17:51:25.528] [INFO] automigrate-/storybook/.storybook-task: [32m[32m✔[32m fix-faux-esm-require[39m
+[17:51:25.528] [INFO] automigrate-/storybook/.storybook-task-success: Completed automigrations for /storybook/.storybook
+[17:51:25.528] [INFO] Installing dependencies...
+[17:51:25.528] [INFO] install-dependencies-spinner-start: Installing dependencies...
+[17:51:25.528] [DEBUG] Executing command: bun install
+[17:51:25.537] [INFO] Installing dependencies...: bun install v1.3.13 (bf2e2cec)
+
+[17:51:25.537] [INFO] install-dependencies-spinner: Installing dependencies...: bun install v1.3.13 (bf2e
+[17:51:27.283] [INFO] Installing dependencies...: 
++ @storybook/addon-docs@10.5.8
++ @storybook/react@10.5.8
++ @storybook/react-vite@10.5.8
++ storybook@10.5.8
+
+62 packages installed [1.75s]
+Removed: 1
+
+[17:51:27.283] [INFO] install-dependencies-spinner: Installing dependencies...: + @storybook/addon-docs@1
+[17:51:27.286] [INFO] Dependencies installed
+[17:51:27.286] [INFO] install-dependencies-spinner-stop: Dependencies installed
+[17:51:27.287] [WARN] Since you are in a monorepo, we advise you to deduplicate your dependencies. We can do this for you but it might take some time.
+[17:51:29.697] [PROMPT] Execute bun run dedupe? {"choice":true}
+[17:51:29.697] [INFO] Deduplicating dependencies...
+[17:51:29.697] [INFO] Deduplicating dependencies...
+[17:51:29.698] [DEBUG] Executing command: bun dedupe
+[17:51:29.718] [ERROR] An error occurred while deduplicating dependencies. {"error":"ExecaError: Command failed with exit code 1: bun dedupe\n\nerror: Script not found \"dedupe\"\n    at getFinalError (file:///private/var/folders/_z/lrcmyqh90870h4ks2xvchs000000gn/T/bunx-501-@storybook/cli@10.5.8/node_modules/storybook/dist/_node-chunks/chunk-7ATDBJYQ.js:16218:10)\n    at makeError (file:///private/var/folders/_z/lrcmyqh90870h4ks2xvchs000000gn/T/bunx-501-@storybook/cli@10.5.8/node_modules/storybook/dist/_node-chunks/chunk-7ATDBJYQ.js:17754:15)\n    at getAsyncResult (file:///private/var/folders/_z/lrcmyqh90870h4ks2xvchs000000gn/T/bunx-501-@storybook/cli@10.5.8/node_modules/storybook/dist/_node-chunks/chunk-7ATDBJYQ.js:20400:158)\n    at handlePromise (file:///private/var/folders/_z/lrcmyqh90870h4ks2xvchs000000gn/T/bunx-501-@storybook/cli@10.5.8/node_modules/storybook/dist/_node-chunks/chunk-7ATDBJYQ.js:20386:162)\n    at async Object.executeTask (file:///private/var/folders/_z/lrcmyqh90870h4ks2xvchs000000gn/T/bunx-501-@storybook/cli@10.5.8/node_modules/storybook/dist/_node-chunks/chunk-M54DHASI.js:3670:11)\n    at async BUNProxy.dedupeDependencies (file:///private/var/folders/_z/lrcmyqh90870h4ks2xvchs000000gn/T/bunx-501-@storybook/cli@10.5.8/node_modules/storybook/dist/_node-chunks/chunk-7ATDBJYQ.js:14132:5)\n    at async upgrade (file:///private/var/folders/_z/lrcmyqh90870h4ks2xvchs000000gn/T/bunx-501-@storybook/cli@10.5.8/node_modules/@storybook/cli/dist/_node-chunks/run-E32KTMBO.js:10606:107)\n    at async file:///private/var/folders/_z/lrcmyqh90870h4ks2xvchs000000gn/T/bunx-501-@storybook/cli@10.5.8/node_modules/@storybook/cli/dist/_node-chunks/run-E32KTMBO.js:10755:70\n    at async withTelemetry (file:///private/var/folders/_z/lrcmyqh90870h4ks2xvchs000000gn/T/bunx-501-@storybook/cli@10.5.8/node_modules/storybook/dist/_node-chunks/chunk-BDBVBZK5.js:1785:12)\n    at async Command.<anonymous> (file:///private/var/folders/_z/lrcmyqh90870h4ks2xvchs000000gn/T/bunx-501-@storybook/cli@10.5.8/node_modules/@storybook/cli/dist/_node-chunks/run-E32KTMBO.js:10751:3)"}
+[17:51:29.718] [INFO] [31mCommand failed with exit code 1: bun dedupe
+
+error: Script not found "dedupe"[39m
+[17:51:29.718] [ERROR] [38;2;241;97;97mExecaError: Command failed with exit code 1: bun dedupe
+
+error: Script not found "dedupe"[39m
+    at getFinalError (file:///private/var/folders/_z/lrcmyqh90870h4ks2xvchs000000gn/T/bunx-501-@storybook/cli@10.5.8/node_modules/storybook/dist/_node-chunks/chunk-7ATDBJYQ.js:16218:10)
+    at makeError (file:///private/var/folders/_z/lrcmyqh90870h4ks2xvchs000000gn/T/bunx-501-@storybook/cli@10.5.8/node_modules/storybook/dist/_node-chunks/chunk-7ATDBJYQ.js:17754:15)
+    at getAsyncResult (file:///private/var/folders/_z/lrcmyqh90870h4ks2xvchs000000gn/T/bunx-501-@storybook/cli@10.5.8/node_modules/storybook/dist/_node-chunks/chunk-7ATDBJYQ.js:20400:158)
+    at handlePromise (file:///private/var/folders/_z/lrcmyqh90870h4ks2xvchs000000gn/T/bunx-501-@storybook/cli@10.5.8/node_modules/storybook/dist/_node-chunks/chunk-7ATDBJYQ.js:20386:162)
+    at async Object.executeTask (file:///private/var/folders/_z/lrcmyqh90870h4ks2xvchs000000gn/T/bunx-501-@storybook/cli@10.5.8/node_modules/storybook/dist/_node-chunks/chunk-M54DHASI.js:3670:11)
+    at async BUNProxy.dedupeDependencies (file:///private/var/folders/_z/lrcmyqh90870h4ks2xvchs000000gn/T/bunx-501-@storybook/cli@10.5.8/node_modules/storybook/dist/_node-chunks/chunk-7ATDBJYQ.js:14132:5)
+    at async upgrade (file:///private/var/folders/_z/lrcmyqh90870h4ks2xvchs000000gn/T/bunx-501-@storybook/cli@10.5.8/node_modules/@storybook/cli/dist/_node-chunks/run-E32KTMBO.js:10606:107)
+    at async file:///private/var/folders/_z/lrcmyqh90870h4ks2xvchs000000gn/T/bunx-501-@storybook/cli@10.5.8/node_modules/@storybook/cli/dist/_node-chunks/run-E32KTMBO.js:10755:70
+    at async withTelemetry (file:///private/var/folders/_z/lrcmyqh90870h4ks2xvchs000000gn/T/bunx-501-@storybook/cli@10.5.8/node_modules/storybook/dist/_node-chunks/chunk-BDBVBZK5.js:1785:12)
+    at async Command.<anonymous> (file:///private/var/folders/_z/lrcmyqh90870h4ks2xvchs000000gn/T/bunx-501-@storybook/cli@10.5.8/node_modules/@storybook/cli/dist/_node-chunks/run-E32KTMBO.js:10751:3)
+[17:51:29.721] [INFO] Storybook collects completely anonymous usage telemetry. We use it to shape Storybook's roadmap and prioritize features. You can learn more, including how to opt out, at https://storybook.js.org/telemetry
+[17:51:30.354] [ERROR] ExecaError: Command failed with exit code 1: bun dedupe
+
+error: Script not found "dedupe"

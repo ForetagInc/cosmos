@@ -1,6 +1,7 @@
-import { defineWorkspace } from 'vitest/config';
+import { defineProject } from 'vitest/config';
 
-export default defineWorkspace([
-	'packages/cosmos/vitest.config.ts',
-	'apps/design/vitest.config.ts',
-]);
+export default defineProject({
+	test: {
+		projects: ['storybook/vitest.config.ts'],
+	},
+});

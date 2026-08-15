@@ -24,8 +24,8 @@
 		"ci": "bun run lint && bun run format:check && bun run typecheck && bun run test:unit && bun run build"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.4.13",
+		"@biomejs/biome": "^2.5.8",
 		"typescript": "^5.9.3",
-		"vitest": "^3.2.4"
+		"vitest": "^3.2.7"
 	}
 }
