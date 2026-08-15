@@ -1,6 +1,4 @@
 node_modules
-bun.lock
-!storybook/bun.lock
 .DS_Store
 .env
 .env.*
@@ -9,10 +7,10 @@ bun.lock
 # Build outputs
 dist
 storybook-static
-packages/cosmos/storybook-static
 coverage
 playwright-report
 test-results
+debug-storybook.log
 
 # TanStack/Cloudflare
 .tanstack

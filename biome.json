@@ -17,6 +17,7 @@
 		"includes": [
 			"**",
 			"!**/dist",
+			"!**/storybook-static",
 			"!**/apps/design/public/storybook",
 			"!**/coverage",
 			"!**/playwright-report",

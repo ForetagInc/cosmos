@@ -1,0 +1,134 @@
+:root[data-theme='doomsday'],
+[data-theme='doomsday'] {
+	--theme-background: 210 54% 3%;
+	--theme-foreground: 159 100% 74%;
+	--theme-field: 165 55% 6%;
+	--theme-card: 162 71% 7%;
+	--theme-card-foreground: 159 100% 84%;
+	--theme-popover: 168 100% 5%;
+	--theme-popover-foreground: 159 100% 84%;
+	--theme-primary: 160 100% 55%;
+	--theme-primary-foreground: 168 100% 5%;
+	--theme-secondary: 158 60% 11%;
+	--theme-secondary-foreground: 159 100% 80%;
+	--theme-muted: 160 40% 10%;
+	--theme-muted-foreground: 159 50% 56%;
+	--theme-accent: 160 50% 14%;
+	--theme-accent-foreground: 159 100% 80%;
+	--theme-destructive: 0 95% 56%;
+	--theme-destructive-foreground: 0 0% 98%;
+	--theme-border: 161 60% 12%;
+	--theme-input: 161 55% 14%;
+	--theme-ring: 160 100% 55%;
+	--theme-chart-1: 160 100% 55%;
+	--theme-chart-2: 167 100% 50%;
+	--theme-chart-3: 159 100% 74%;
+	--theme-chart-4: 36 92% 58%;
+	--theme-chart-5: 345 80% 60%;
+	--theme-sidebar: 168 60% 4%;
+	--theme-sidebar-foreground: 159 90% 78%;
+	--theme-sidebar-primary: 160 100% 55%;
+	--theme-sidebar-primary-foreground: 168 100% 5%;
+	--theme-sidebar-accent: 159 59% 9%;
+	--theme-sidebar-accent-foreground: 159 100% 80%;
+	--theme-sidebar-border: 161 70% 11%;
+	--theme-sidebar-ring: 160 100% 55%;
+	--theme-sidebar-icon-muted: 159 60% 60%;
+	--theme-sidebar-icon-active: 160 100% 70%;
+
+	--ui-bg-subtle: color-mix(
+		in oklab,
+		hsl(var(--theme-sidebar)),
+		hsl(var(--theme-foreground)) 4%
+	);
+	--ui-bg-component: color-mix(
+		in oklab,
+		hsl(var(--theme-card)),
+		hsl(var(--theme-foreground)) 2%
+	);
+	--ui-border-base: color-mix(
+		in oklab,
+		hsl(var(--theme-sidebar-border)),
+		transparent 14%
+	);
+	--ui-fg-subtle: color-mix(
+		in oklab,
+		hsl(var(--theme-sidebar-foreground)),
+		transparent 26%
+	);
+
+	--button-primary-bg: hsl(160 100% 38%);
+	--button-primary-border: hsl(160 100% 22%);
+	--button-primary-border-hover: hsl(160 100% 26%);
+	--button-primary-border-active: hsl(160 100% 18%);
+	--button-primary-bg-hover: hsl(160 100% 44%);
+	--button-primary-bg-active: hsl(160 100% 32%);
+	--button-primary-fg: hsl(168 100% 6%);
+	--button-shadow-primary: inset 0 1px 0 rgb(124 255 216 / 0.18),
+		0 0 0 1px rgb(26 255 176 / 0.35), 0 1px 2px rgb(0 0 0 / 0.6);
+	--button-shadow-primary-active: inset 0 1px 0 rgb(124 255 216 / 0.08),
+		0 1px 1px rgb(0 0 0 / 0.5);
+	--button-secondary-bg: hsl(161 60% 10%);
+	--button-secondary-border: hsl(161 70% 16%);
+	--button-secondary-border-hover: hsl(161 70% 22%);
+	--button-secondary-border-active: hsl(161 70% 12%);
+	--button-secondary-bg-hover: hsl(161 60% 14%);
+	--button-secondary-bg-active: hsl(161 60% 8%);
+	--button-secondary-fg: hsl(159 100% 80%);
+	--button-shadow-secondary: 0 1px 2px rgb(0 0 0 / 0.5);
+	--button-shadow-secondary-active: 0 1px 1px rgb(0 0 0 / 0.6);
+	--button-overlay-secondary: linear-gradient(
+		to bottom,
+		rgb(26 255 176 / 0.04),
+		transparent
+	);
+	--button-overlay-soft: linear-gradient(
+		to bottom,
+		rgb(26 255 176 / 0.05),
+		transparent
+	);
+	--button-overlay-strong: linear-gradient(
+		to bottom,
+		rgb(26 255 176 / 0.08),
+		transparent
+	);
+	--label-fg: hsl(var(--theme-muted-foreground));
+	--surface-border-base: rgb(26 255 176 / 0.14);
+	--borders-base: 0px 0px 0px 1px rgb(26 255 176 / 0.14),
+		0px 1px 2px rgb(0 0 0 / 0.5);
+	--borders-interactive-with-active: 0px 0px 0px 1px hsl(var(--theme-ring)),
+		0px 0px 0px 3px color-mix(in oklab, hsl(var(--theme-ring)), transparent 70%);
+	--elevation-flyout: 0px 0px 0px 1px rgb(26 255 176 / 0.16),
+		0px 10px 28px rgb(0 0 0 / 0.7),
+		0px 0px 24px rgb(26 255 176 / 0.08);
+	--elevation-modal: 0px 0px 0px 1px rgb(26 255 176 / 0.2),
+		0px 16px 40px rgb(0 0 0 / 0.8),
+		0px 0px 32px rgb(26 255 176 / 0.1);
+	--card-shadow: 0px 0px 0px 1px rgb(26 255 176 / 0.12),
+		0px 2px 6px rgb(0 0 0 / 0.5);
+	--sidebar-stroke: color-mix(
+		in oklab,
+		hsl(var(--theme-sidebar-border)),
+		transparent 16%
+	);
+	--sidebar-panel-shadow: 0 0 0 1px var(--sidebar-stroke),
+		0 10px 30px rgb(0 0 0 / 0.6);
+	--input-bg: hsl(var(--theme-field));
+	--input-bg-hover: color-mix(
+		in oklab,
+		hsl(var(--theme-field)),
+		hsl(var(--theme-foreground)) 6%
+	);
+	--checkbox-bg: hsl(161 55% 8%);
+	--checkbox-bg-hover: hsl(161 55% 11%);
+	--checkbox-border: hsl(161 70% 18%);
+	--checkbox-border-hover: hsl(161 80% 26%);
+	--checkbox-shadow: inset 0 1px 0 rgb(26 255 176 / 0.06),
+		0 1px 1px rgb(0 0 0 / 0.5);
+	--checkbox-checked-bg: hsl(160 100% 50%);
+	--checkbox-checked-border: hsl(160 100% 30%);
+	--checkbox-checked-fg: hsl(168 100% 5%);
+	--checkbox-checked-shadow: 0 1px 2px rgb(0 0 0 / 0.5),
+		0 0 12px rgb(26 255 176 / 0.4);
+	--dialog-overlay-bg: rgb(1 6 4 / 0.78);
+}

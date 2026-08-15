@@ -2,6 +2,6 @@ import { defineProject } from 'vitest/config';
 
 export default defineProject({
 	test: {
-		projects: ['storybook/vitest.config.ts'],
+		projects: ['packages/cosmos/vitest.config.ts'],
 	},
 });

@@ -2,16 +2,7 @@
 	"extends": "../tsconfig.base.json",
 	"compilerOptions": {
 		"baseUrl": ".",
-		"types": ["vite/client", "vitest/globals", "@testing-library/jest-dom"],
-		"paths": {
-			"@/*": ["./src/*"]
-		}
+		"types": ["vite/client"]
 	},
-	"include": [
-		"src/**/*.ts",
-		"src/**/*.tsx",
-		"stories/**/*.ts",
-		"stories/**/*.tsx",
-		".storybook/**/*.ts"
-	]
+	"include": ["stories/**/*.ts", "stories/**/*.tsx", ".storybook/**/*.ts"]
 }
