@@ -1,3 +1,10 @@
+/** biome-ignore-all lint/suspicious/noDocumentCookie: Placeholders */
+
+import { cva, type VariantProps } from 'class-variance-authority';
+import { Slot } from 'radix-ui';
+import * as React from 'react';
+import { useIsMobile } from '../../hooks/use-mobile';
+import { cn } from '../utils';
 import {
 	Button,
 	Input,
@@ -12,11 +19,6 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from './';
-import { cn } from '../utils';
-import { useIsMobile } from '../../hooks/use-mobile';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { Slot } from 'radix-ui';
-import * as React from 'react';
 
 const SIDEBAR_COOKIE_NAME = 'sidebar_state';
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;

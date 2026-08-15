@@ -27,7 +27,8 @@
 		"typecheck": "bunx tsc --noEmit",
 		"test": "bunx vitest run --config vitest.config.ts",
 		"storybook": "storybook dev -p 6006",
-		"build-storybook": "STORYBOOK_DISABLE_TELEMETRY=1 storybook build --output-dir ${STORYBOOK_OUTPUT_DIR:-./storybook-static}"
+		"build-storybook": "STORYBOOK_DISABLE_TELEMETRY=1 storybook build --output-dir ${STORYBOOK_OUTPUT_DIR:-./storybook-static}",
+		"build-storybook:cf": "STORYBOOK_BASE_PATH=/ bun run build-storybook"
 	},
 	"peerDependencies": {
 		"react": "^19.2.8",
@@ -70,6 +71,7 @@
 		"typescript": "^5.9.3",
 		"vite": "^7.3.6",
 		"vite-tsconfig-paths": "^5.1.4",
-		"vitest": "^3.2.7"
+		"vitest": "^3.2.7",
+		"wrangler": "^4.123.0"
 	}
 }

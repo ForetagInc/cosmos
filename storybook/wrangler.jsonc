@@ -1,0 +1,12 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "cosmos",
+	"compatibility_date": "2026-08-15",
+	// Assets-only Worker: no `main` entrypoint, so nothing server-renders.
+	"assets": {
+		"directory": "./storybook-static"
+	},
+	"observability": {
+		"enabled": true
+	}
+}
