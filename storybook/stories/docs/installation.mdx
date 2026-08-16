@@ -1,0 +1,63 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Getting Started/Installation" />
+
+# Installation
+
+Cosmos is published to npm as **`@foretag/cosmos`**. Install it with Bun:
+
+```bash
+bun add @foretag/cosmos
+```
+
+React 19 is a peer dependency, so install it alongside if the app doesn't
+already have it:
+
+```bash
+bun add react react-dom
+```
+
+## Import the stylesheet once
+
+Every primitive reads its colours, radii and shadows from CSS variables defined
+in the package stylesheet. Import it once, at your app's entry point — without
+it components render unstyled.
+
+```ts
+import '@foretag/cosmos/styles.css';
+```
+
+## Render a component
+
+```tsx
+import { Button, Input, Label } from '@foretag/cosmos';
+
+export function Example() {
+  return (
+    <div className="grid gap-2">
+      <Label htmlFor="email">Email</Label>
+      <Input id="email" type="email" placeholder="name@foretag.co" />
+      <Button>Save</Button>
+    </div>
+  );
+}
+```
+
+## Entry points
+
+| Import | Contents |
+| --- | --- |
+| `@foretag/cosmos` | All primitives, hooks and theme helpers |
+| `@foretag/cosmos/styles.css` | Tokens, themes, fonts and Tailwind layers |
+| `@foretag/cosmos/themes` | Theme helpers on their own, without pulling in React components |
+
+## Tailwind consumers
+
+The package ships TypeScript source rather than pre-compiled JS, so Tailwind
+needs to scan it for class names. The package stylesheet already declares its
+own `@source`, so importing `styles.css` is enough in most setups. If you
+compile Tailwind separately, point an `@source` at the installed package:
+
+```css
+@source '../node_modules/@foretag/cosmos/src';
+```

@@ -2,15 +2,29 @@ import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { StorybookConfig } from '@storybook/react-vite';
 import tailwindcss from '@tailwindcss/vite';
+import remarkGfm from 'remark-gfm';
 
-const storybookBase = process.env.STORYBOOK_BASE_PATH ?? '/storybook/';
+// Root-relative by default: a '/storybook/' base breaks assets when the site is served
+// at the domain root, and stops Vitest's browser runner from loading its page at all.
+// Override only when Storybook is genuinely mounted under a sub-path.
+const storybookBase = process.env.STORYBOOK_BASE_PATH ?? '/';
 
 const config: StorybookConfig = {
-	stories: ['../stories/**/*.mdx', '../stories/**/*.stories.@(ts|tsx)'],
+	// Stories first so MDX docs attach to existing entries instead of reordering the sidebar.
+	stories: ['../stories/**/*.stories.@(ts|tsx)', '../stories/**/*.mdx'],
 	addons: [
-		getAbsolutePath('@storybook/addon-docs'),
+		{
+			name: getAbsolutePath('@storybook/addon-docs'),
+			// Storybook's MDX has no GFM by default, so tables render as literal pipes.
+			options: {
+				mdxPluginOptions: {
+					mdxCompileOptions: { remarkPlugins: [remarkGfm] },
+				},
+			},
+		},
 		getAbsolutePath('@storybook/addon-a11y'),
 		getAbsolutePath('@storybook/addon-themes'),
+		getAbsolutePath('@storybook/addon-vitest'),
 	],
 	framework: {
 		name: getAbsolutePath('@storybook/react-vite'),

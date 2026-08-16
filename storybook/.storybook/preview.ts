@@ -7,6 +7,7 @@ import {
 	normalizeThemeMode,
 } from '@foretag/cosmos';
 import type { Preview } from '@storybook/react-vite';
+import { addons } from 'storybook/preview-api';
 import './preview.css';
 
 const themeOptions = Object.entries(APP_THEME_DEFINITIONS).flatMap(
@@ -22,6 +23,17 @@ function parseThemeOption(value: unknown): [AppTheme, AppThemeMode] {
 	return [normalizeTheme(theme), normalizeThemeMode(mode)];
 }
 
+// Decorators only wrap stories, so MDX prose (the docs pages) would never get a
+// theme. Listening on the channel themes the whole preview document instead.
+const channel = addons.getChannel();
+
+function syncTheme({ globals }: { globals?: { theme?: unknown } }) {
+	applyTheme(document.documentElement, ...parseThemeOption(globals?.theme));
+}
+
+channel.on('setGlobals', syncTheme);
+channel.on('globalsUpdated', syncTheme);
+
 const preview: Preview = {
 	parameters: {
 		controls: {
@@ -30,7 +42,27 @@ const preview: Preview = {
 				date: /Date$/i,
 			},
 		},
+
 		layout: 'centered',
+
+		options: {
+			// Docs land first; Storybook opens on the first entry in the sidebar.
+			storySort: {
+				order: [
+					'Getting Started',
+					['Introduction', 'Installation'],
+					'Foundations',
+					['Theming', 'Design Tokens'],
+					'Primitives',
+				],
+			},
+		},
+
+		a11y: {
+			// Reports violations without failing the run. Switch to 'error' to gate CI
+			// once the outstanding naming and contrast issues are resolved.
+			test: 'todo',
+		},
 	},
 	globalTypes: {
 		theme: {

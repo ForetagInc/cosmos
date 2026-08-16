@@ -41,7 +41,12 @@ const useChoiceboxItemContext = () => {
 	return context;
 };
 
-export type ChoiceboxItemProps = ComponentProps<typeof RadioGroupItem> & {
+// Base UI allows className to be a state callback; Choicebox forwards it to Field, which takes a string.
+export type ChoiceboxItemProps = Omit<
+	ComponentProps<typeof RadioGroupItem>,
+	'className'
+> & {
+	className?: string;
 	labelClassName?: string;
 };
 

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import { readThemeMode, type ResolvedThemeMode } from '../lib/theme';
+import { type ResolvedThemeMode, readThemeMode } from '../lib/theme';
 
-/** Tracks the mode `applyTheme` wrote to the document root. */
 export function useResolvedThemeMode(): ResolvedThemeMode {
 	const [mode, setMode] = useState<ResolvedThemeMode>('light');
 

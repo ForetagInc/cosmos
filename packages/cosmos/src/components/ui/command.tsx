@@ -1,5 +1,4 @@
 import { Command as CommandPrimitive } from 'cmdk';
-import type { Dialog as DialogPrimitive } from 'radix-ui';
 import * as React from 'react';
 import { Dialog, DialogContent } from './';
 import { cn } from '../utils';
@@ -20,7 +19,15 @@ const Command = React.forwardRef<
 
 Command.displayName = CommandPrimitive.displayName;
 
-const CommandDialog = ({ children, ...props }: DialogPrimitive.DialogProps) => {
+// Base UI's Dialog children may be a render function; Command only accepts nodes.
+type CommandDialogProps = Omit<
+	React.ComponentProps<typeof Dialog>,
+	'children'
+> & {
+	children?: React.ReactNode;
+};
+
+const CommandDialog = ({ children, ...props }: CommandDialogProps) => {
 	return (
 		<Dialog {...props}>
 			<DialogContent

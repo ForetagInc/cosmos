@@ -31,8 +31,8 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
 	render: (args) => (
 		<Sheet>
-			<SheetTrigger asChild>
-				<Button variant="outline">Open filters</Button>
+			<SheetTrigger render={<Button variant="outline" />}>
+				Open filters
 			</SheetTrigger>
 			<SheetContent {...args}>
 				<SheetHeader>
@@ -42,9 +42,7 @@ export const Default: Story = {
 					</SheetDescription>
 				</SheetHeader>
 				<SheetFooter>
-					<SheetClose asChild>
-						<Button>Apply</Button>
-					</SheetClose>
+					<SheetClose render={<Button />}>Apply</SheetClose>
 				</SheetFooter>
 			</SheetContent>
 		</Sheet>

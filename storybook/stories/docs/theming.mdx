@@ -1,0 +1,85 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Theming" />
+
+# Theming
+
+Cosmos ships four themes. Each declares which colour modes it supports — not
+every theme has both, and asking for an unsupported mode falls back rather than
+rendering something broken.
+
+| Theme | Modes | Character |
+| --- | --- | --- |
+| **Marble** | Light, Dark | The default. Neutral greys, high contrast. |
+| **Graphene** | Dark only | Deep navy, for dense operational screens. |
+| **Euclid** | Light only | Warmer light surface. |
+| **Doomsday** | Dark only | Near-black with a green cast. |
+
+Preview any story under a different theme with the paintbrush in the toolbar.
+Only valid theme/mode pairs are listed, because the options are generated from
+the same `APP_THEME_DEFINITIONS` the runtime uses.
+
+## Applying a theme
+
+`applyTheme` writes everything the CSS needs onto an element — normally the
+document root — and returns the mode it actually resolved to:
+
+```ts
+import { applyTheme } from '@foretag/cosmos';
+
+applyTheme(document.documentElement, 'marble', 'dark');
+```
+
+It sets four things:
+
+| Attribute | Purpose |
+| --- | --- |
+| `data-theme` | Selects the theme's palette |
+| `data-mode` | The resolved mode, `light` or `dark` |
+| `data-theme-mode` | The requested mode, which may be `system` |
+| `.dark` class | Drives Tailwind's `dark:` variant |
+
+It also sets `color-scheme` so native controls and scrollbars match.
+
+## Modes and fallback
+
+A mode may be `light`, `dark` or `system`. `system` resolves against
+`prefers-color-scheme`.
+
+Because Graphene and Doomsday are dark-only, asking either for `light` cannot be
+honoured. Rather than emitting a broken half-themed page, `applyTheme` falls
+back to the theme's first supported mode:
+
+```ts
+applyTheme(root, 'graphene', 'light'); // → 'dark'
+```
+
+Use `resolveThemeAppearance` if you need that answer without touching the DOM.
+
+## Reacting to the current mode
+
+`useResolvedThemeMode` tracks the mode currently on the document and re-renders
+when it changes. It is how `Toaster` matches the surrounding theme:
+
+```tsx
+import { useResolvedThemeMode } from '@foretag/cosmos';
+
+const mode = useResolvedThemeMode(); // 'light' | 'dark'
+```
+
+## Persisting a choice
+
+Cosmos deliberately does not read or write cookies, local storage or URLs — the
+app owns persistence. Read your stored values, pass them through
+`normalizeTheme` and `normalizeThemeMode` to reject anything stale or invalid,
+then call `applyTheme`.
+
+```ts
+import { applyTheme, normalizeTheme, normalizeThemeMode } from '@foretag/cosmos';
+
+applyTheme(
+  document.documentElement,
+  normalizeTheme(stored.theme),
+  normalizeThemeMode(stored.mode),
+);
+```

@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, test } from 'vitest';
 import {
 	APP_THEMES,
@@ -19,7 +20,8 @@ describe('theme utilities', () => {
 	});
 
 	test('contains tokenized CSS variables', () => {
-		const css = readFileSync(join(process.cwd(), 'src/styles/app.css'), 'utf8');
+		const packageRoot = join(dirname(fileURLToPath(import.meta.url)), '../..');
+		const css = readFileSync(join(packageRoot, 'src/styles/app.css'), 'utf8');
 		expect(css).toContain('--background');
 		expect(css).toContain('--foreground');
 		expect(css).toContain('--radius');

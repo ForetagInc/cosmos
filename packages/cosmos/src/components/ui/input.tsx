@@ -1,21 +1,19 @@
-import { cva, type VariantProps } from 'class-variance-authority';
+import { tv, type VariantProps } from 'tailwind-variants';
 import * as React from 'react';
 import { cn } from '../utils';
 
-const inputVariants = cva(
-	'caret-foreground bg-[var(--input-bg)] hover:bg-[var(--input-bg-hover)] border-0 shadow-[var(--input-shadow)] placeholder:text-[var(--input-placeholder)] text-[var(--input-fg)] transition-[color,background-color,border-color,box-shadow] relative w-full appearance-none rounded-md outline-none ring-0',
-	{
-		variants: {
-			size: {
-				base: 'h-9 px-2.5 py-2 text-sm',
-				small: 'h-8 px-2 py-1.5 text-xs',
-			},
-		},
-		defaultVariants: {
-			size: 'base',
+const inputVariants = tv({
+	base: 'caret-foreground bg-[var(--input-bg)] hover:bg-[var(--input-bg-hover)] border-0 shadow-[var(--input-shadow)] placeholder:text-[var(--input-placeholder)] text-[var(--input-fg)] transition-[color,background-color,border-color,box-shadow] relative w-full appearance-none rounded-md outline-none ring-0',
+	variants: {
+		size: {
+			base: 'h-9 px-2.5 py-2 text-sm',
+			small: 'h-8 px-2 py-1.5 text-xs',
 		},
 	},
-);
+	defaultVariants: {
+		size: 'base',
+	},
+});
 
 export interface InputProps
 	extends Omit<React.ComponentProps<'input'>, 'size'>,

@@ -24,10 +24,17 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+// Base UI resolves the trigger label from `items`; without it the raw value shows.
+const teammates = {
+	ada: 'Ada Lovelace',
+	alan: 'Alan Turing',
+	eva: 'Eva Zeisel',
+};
+
 export const Grouped: Story = {
 	render: (args) => (
 		<div style={{ width: 280 }}>
-			<Select {...args} defaultValue="ada">
+			<Select {...args} items={teammates} defaultValue="ada">
 				<SelectTrigger>
 					<SelectValue placeholder="Select a teammate" />
 				</SelectTrigger>

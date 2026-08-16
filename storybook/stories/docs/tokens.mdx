@@ -1,0 +1,58 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Swatches } from './Swatches';
+
+<Meta title="Foundations/Design Tokens" />
+
+# Design Tokens
+
+Every primitive styles itself from semantic CSS variables rather than fixed
+colours. That indirection is what lets one component render correctly under four
+different themes without a single conditional.
+
+The swatches below read their values live from the page, so switching theme with
+the toolbar re-renders them.
+
+## Surfaces
+
+<Swatches tokens={['background', 'foreground', 'card', 'popover', 'muted', 'accent']} />
+
+## Interactive
+
+<Swatches tokens={['primary', 'secondary', 'destructive', 'border', 'input', 'ring']} />
+
+## How a token resolves
+
+Tokens are layered so a theme only ever restates raw colour, never structure:
+
+```css
+/* themes/marble.css — the theme states the colour */
+[data-theme='marble'] {
+  --theme-background: 0 0% 100%;
+}
+
+/* app.css — the app layer gives it a semantic name */
+:root {
+  --background: hsl(var(--theme-background));
+}
+```
+
+Tailwind then exposes that name as a utility, so components write
+`bg-background` and never a literal colour.
+
+## Using tokens
+
+Reach for the semantic utility first:
+
+```tsx
+<div className="bg-card text-card-foreground border-border" />
+```
+
+When a component needs a token Tailwind has no utility for — the component-level
+variables like `--input-bg` or `--btn-bg` — read it through an arbitrary value:
+
+```tsx
+<div className="[background:var(--input-bg)]" />
+```
+
+What to avoid is a raw colour. `bg-[#fff]` looks correct in Marble and breaks in
+the other three themes.

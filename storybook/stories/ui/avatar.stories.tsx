@@ -9,10 +9,7 @@ const meta = {
 			control: 'select',
 			options: ['2xsmall', 'xsmall', 'small', 'base', 'large', 'xlarge'],
 		},
-		variant: {
-			control: 'select',
-			options: ['squared', 'rounded', 'square', 'circle'],
-		},
+		variant: { control: 'inline-radio', options: ['square', 'circle'] },
 	},
 	args: { size: 'base', variant: 'square' },
 } satisfies Meta<typeof Avatar>;

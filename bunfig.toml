@@ -1,0 +1,8 @@
+[test]
+# bun test uses Bun's runner, which ignores vitest.config.ts — these preloads give it
+# the DOM and matchers that vitest gets from its own config. Kept inside the package so
+# they resolve @testing-library from the same node_modules the tests do.
+preload = [
+	"./packages/cosmos/bun-test-dom.ts",
+	"./packages/cosmos/bun-test-setup.ts",
+]

@@ -1,30 +1,44 @@
-import { Popover as PopoverPrimitive } from 'radix-ui';
-import * as React from 'react';
+import { Popover as PopoverPrimitive } from '@base-ui-components/react/popover';
+import type * as React from 'react';
 
 import { cn } from '../utils';
 
 const Popover = PopoverPrimitive.Root;
-
 const PopoverTrigger = PopoverPrimitive.Trigger;
-const PopoverAnchor = PopoverPrimitive.Anchor;
 
-const PopoverContent = React.forwardRef<
-	React.ElementRef<typeof PopoverPrimitive.Content>,
-	React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>
->(({ className, align = 'center', sideOffset = 4, ...props }, ref) => (
-	<PopoverPrimitive.Portal>
-		<PopoverPrimitive.Content
-			ref={ref}
-			align={align}
-			sideOffset={sideOffset}
-			className={cn(
-				'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-72 origin-[--radix-popover-content-transform-origin] rounded-md border border-[var(--surface-border-base)] bg-[var(--popover-surface-bg)] p-4 text-[var(--popover-surface-fg)] shadow-[var(--popover-surface-shadow)] outline-none data-[state=closed]:animate-out data-[state=open]:animate-in',
-				className,
-			)}
-			{...props}
-		/>
-	</PopoverPrimitive.Portal>
-));
-PopoverContent.displayName = PopoverPrimitive.Content.displayName;
+type PopoverContentProps = React.ComponentProps<typeof PopoverPrimitive.Popup> &
+	Pick<
+		React.ComponentProps<typeof PopoverPrimitive.Positioner>,
+		'side' | 'align' | 'sideOffset' | 'anchor'
+	>;
 
-export { Popover, PopoverTrigger, PopoverAnchor, PopoverContent };
+function PopoverContent({
+	className,
+	align = 'center',
+	side,
+	sideOffset = 4,
+	anchor,
+	...props
+}: PopoverContentProps) {
+	return (
+		<PopoverPrimitive.Portal>
+			<PopoverPrimitive.Positioner
+				align={align}
+				side={side}
+				sideOffset={sideOffset}
+				anchor={anchor}
+				className="z-50"
+			>
+				<PopoverPrimitive.Popup
+					className={cn(
+						'w-72 origin-(--transform-origin) rounded-md border border-[var(--surface-border-base)] bg-[var(--popover-surface-bg)] p-4 text-[var(--popover-surface-fg)] shadow-[var(--popover-surface-shadow)] outline-none transition-[opacity,transform] duration-150 data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0',
+						className,
+					)}
+					{...props}
+				/>
+			</PopoverPrimitive.Positioner>
+		</PopoverPrimitive.Portal>
+	);
+}
+
+export { Popover, PopoverTrigger, PopoverContent };

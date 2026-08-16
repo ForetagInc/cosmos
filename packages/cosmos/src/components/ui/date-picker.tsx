@@ -2,12 +2,7 @@ import { format, isBefore, isValid, parse, startOfDay } from 'date-fns';
 import * as React from 'react';
 import { Calendar } from './calendar';
 import { Input } from './input';
-import {
-	Popover,
-	PopoverAnchor,
-	PopoverContent,
-	PopoverTrigger,
-} from './popover';
+import { Popover, PopoverContent, PopoverTrigger } from './popover';
 import { cn } from '../utils';
 
 type Props = {
@@ -28,6 +23,8 @@ export function DatePicker({
 	min,
 }: Props) {
 	const [open, setOpen] = React.useState(false);
+	// The popover anchors to the whole field, while only the icon button triggers it.
+	const anchorRef = React.useRef<HTMLDivElement>(null);
 	const dayRef = React.useRef<HTMLInputElement>(null);
 	const monthRef = React.useRef<HTMLInputElement>(null);
 	const yearRef = React.useRef<HTMLInputElement>(null);
@@ -113,125 +110,119 @@ export function DatePicker({
 
 	return (
 		<Popover open={open} onOpenChange={setOpen}>
-			<PopoverAnchor asChild>
-				<div
-					className={cn(
-						'relative flex h-9 w-full items-center gap-1.5 rounded-md bg-[var(--input-bg)] px-2.5 text-[var(--input-fg)] shadow-[var(--input-shadow)] transition-[color,background-color,border-color,box-shadow] focus-within:shadow-[var(--input-shadow-focus)] hover:bg-[var(--input-bg-hover)]',
-						hasError && 'shadow-[var(--input-shadow-error)]',
-						disabled &&
-							'cursor-not-allowed bg-[var(--input-disabled-bg)] text-[var(--input-disabled-fg)]',
-						className,
-					)}
-					title={placeholder}
-				>
-					<div className="flex min-w-0 flex-1 items-center gap-1 text-sm">
-						<Input
-							ref={dayRef}
-							value={dayPart}
-							disabled={disabled}
-							inputMode="numeric"
-							placeholder="DD"
-							maxLength={2}
-							className="h-auto w-7 rounded-none bg-transparent p-0 text-center text-sm shadow-none focus-visible:shadow-none"
-							onChange={(event) => {
-								const next = event.target.value.replace(/\D/g, '').slice(0, 2);
-								setDayPart(next);
-								if (next.length === 2) {
-									monthRef.current?.focus();
-									monthRef.current?.select();
-								}
-							}}
-							onBlur={commitValue}
-							onKeyDown={(event) => {
-								if (event.key === 'ArrowRight') {
-									monthRef.current?.focus();
-									monthRef.current?.select();
-								}
-								if (event.key === 'Enter') {
-									commitValue();
-									setOpen(false);
-								}
-							}}
-						/>
-						<span className="text-[var(--input-placeholder)]">/</span>
-						<Input
-							ref={monthRef}
-							value={monthPart}
-							disabled={disabled}
-							inputMode="numeric"
-							placeholder="MM"
-							maxLength={2}
-							className="h-auto w-7 rounded-none bg-transparent p-0 text-center text-sm shadow-none focus-visible:shadow-none"
-							onChange={(event) => {
-								const next = event.target.value.replace(/\D/g, '').slice(0, 2);
-								setMonthPart(next);
-								if (next.length === 2) {
-									yearRef.current?.focus();
-									yearRef.current?.select();
-								}
-							}}
-							onBlur={commitValue}
-							onKeyDown={(event) => {
-								if (event.key === 'ArrowLeft') {
-									dayRef.current?.focus();
-									dayRef.current?.select();
-								}
-								if (event.key === 'ArrowRight') {
-									yearRef.current?.focus();
-									yearRef.current?.select();
-								}
-								if (event.key === 'Backspace' && !monthPart) {
-									dayRef.current?.focus();
-									dayRef.current?.select();
-								}
-								if (event.key === 'Enter') {
-									commitValue();
-									setOpen(false);
-								}
-							}}
-						/>
-						<span className="text-[var(--input-placeholder)]">/</span>
-						<Input
-							ref={yearRef}
-							value={yearPart}
-							disabled={disabled}
-							inputMode="numeric"
-							placeholder="YYYY"
-							maxLength={4}
-							className="h-auto w-11 rounded-none bg-transparent p-0 text-center text-sm shadow-none focus-visible:shadow-none"
-							onChange={(event) => {
-								const next = event.target.value.replace(/\D/g, '').slice(0, 4);
-								setYearPart(next);
-							}}
-							onBlur={commitValue}
-							onKeyDown={(event) => {
-								if (event.key === 'ArrowLeft') {
-									monthRef.current?.focus();
-									monthRef.current?.select();
-								}
-								if (event.key === 'Enter') {
-									commitValue();
-									setOpen(false);
-								}
-							}}
-						/>
-					</div>
-					<PopoverTrigger asChild>
-						<button
-							type="button"
-							disabled={disabled}
-							aria-label="Open calendar"
-							className="absolute top-1/2 right-2 inline-flex size-5 -translate-y-1/2 items-center justify-center rounded-sm text-muted-foreground transition-colors hover:text-foreground disabled:pointer-events-none disabled:opacity-50"
-						>
-							<i
-								aria-hidden="true"
-								className="ti ti-calendar-event text-base"
-							/>
-						</button>
-					</PopoverTrigger>
+			<div
+				ref={anchorRef}
+				className={cn(
+					'relative flex h-9 w-full items-center gap-1.5 rounded-md bg-[var(--input-bg)] px-2.5 text-[var(--input-fg)] shadow-[var(--input-shadow)] transition-[color,background-color,border-color,box-shadow] focus-within:shadow-[var(--input-shadow-focus)] hover:bg-[var(--input-bg-hover)]',
+					hasError && 'shadow-[var(--input-shadow-error)]',
+					disabled &&
+						'cursor-not-allowed bg-[var(--input-disabled-bg)] text-[var(--input-disabled-fg)]',
+					className,
+				)}
+				title={placeholder}
+			>
+				<div className="flex min-w-0 flex-1 items-center gap-1 text-sm">
+					<Input
+						ref={dayRef}
+						value={dayPart}
+						disabled={disabled}
+						inputMode="numeric"
+						placeholder="DD"
+						maxLength={2}
+						className="h-auto w-7 rounded-none bg-transparent p-0 text-center text-sm shadow-none focus-visible:shadow-none"
+						onChange={(event) => {
+							const next = event.target.value.replace(/\D/g, '').slice(0, 2);
+							setDayPart(next);
+							if (next.length === 2) {
+								monthRef.current?.focus();
+								monthRef.current?.select();
+							}
+						}}
+						onBlur={commitValue}
+						onKeyDown={(event) => {
+							if (event.key === 'ArrowRight') {
+								monthRef.current?.focus();
+								monthRef.current?.select();
+							}
+							if (event.key === 'Enter') {
+								commitValue();
+								setOpen(false);
+							}
+						}}
+					/>
+					<span className="text-[var(--input-placeholder)]">/</span>
+					<Input
+						ref={monthRef}
+						value={monthPart}
+						disabled={disabled}
+						inputMode="numeric"
+						placeholder="MM"
+						maxLength={2}
+						className="h-auto w-7 rounded-none bg-transparent p-0 text-center text-sm shadow-none focus-visible:shadow-none"
+						onChange={(event) => {
+							const next = event.target.value.replace(/\D/g, '').slice(0, 2);
+							setMonthPart(next);
+							if (next.length === 2) {
+								yearRef.current?.focus();
+								yearRef.current?.select();
+							}
+						}}
+						onBlur={commitValue}
+						onKeyDown={(event) => {
+							if (event.key === 'ArrowLeft') {
+								dayRef.current?.focus();
+								dayRef.current?.select();
+							}
+							if (event.key === 'ArrowRight') {
+								yearRef.current?.focus();
+								yearRef.current?.select();
+							}
+							if (event.key === 'Backspace' && !monthPart) {
+								dayRef.current?.focus();
+								dayRef.current?.select();
+							}
+							if (event.key === 'Enter') {
+								commitValue();
+								setOpen(false);
+							}
+						}}
+					/>
+					<span className="text-[var(--input-placeholder)]">/</span>
+					<Input
+						ref={yearRef}
+						value={yearPart}
+						disabled={disabled}
+						inputMode="numeric"
+						placeholder="YYYY"
+						maxLength={4}
+						className="h-auto w-11 rounded-none bg-transparent p-0 text-center text-sm shadow-none focus-visible:shadow-none"
+						onChange={(event) => {
+							const next = event.target.value.replace(/\D/g, '').slice(0, 4);
+							setYearPart(next);
+						}}
+						onBlur={commitValue}
+						onKeyDown={(event) => {
+							if (event.key === 'ArrowLeft') {
+								monthRef.current?.focus();
+								monthRef.current?.select();
+							}
+							if (event.key === 'Enter') {
+								commitValue();
+								setOpen(false);
+							}
+						}}
+					/>
 				</div>
-			</PopoverAnchor>
+				<PopoverTrigger
+					disabled={disabled}
+					aria-label="Open calendar"
+					className="absolute top-1/2 right-2 inline-flex size-5 -translate-y-1/2 items-center justify-center rounded-sm text-muted-foreground transition-colors hover:text-foreground disabled:pointer-events-none disabled:opacity-50"
+				>
+					<i aria-hidden="true" className="ti ti-calendar-event text-base" />
+				</PopoverTrigger>
+			</div>
 			<PopoverContent
+				anchor={anchorRef}
 				className="w-auto overflow-visible border-0 bg-transparent p-2 shadow-none"
 				align="center"
 			>

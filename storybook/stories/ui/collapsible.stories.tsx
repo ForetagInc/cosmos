@@ -17,8 +17,8 @@ type Story = StoryObj;
 export const Default: Story = {
 	render: () => (
 		<Collapsible style={{ width: 420, display: 'grid', gap: 8 }}>
-			<CollapsibleTrigger asChild>
-				<Button variant="outline">Advanced options</Button>
+			<CollapsibleTrigger render={<Button variant="outline" />}>
+				Advanced options
 			</CollapsibleTrigger>
 			<CollapsibleContent>
 				Requests retry three times before failing.

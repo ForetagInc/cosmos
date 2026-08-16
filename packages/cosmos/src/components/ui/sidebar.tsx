@@ -1,7 +1,7 @@
 /** biome-ignore-all lint/suspicious/noDocumentCookie: Placeholders */
 
-import { cva, type VariantProps } from 'class-variance-authority';
-import { Slot } from 'radix-ui';
+import { tv, type VariantProps } from 'tailwind-variants';
+import { useRender } from '@base-ui-components/react/use-render';
 import * as React from 'react';
 import { useIsMobile } from '../../hooks/use-mobile';
 import { cn } from '../utils';
@@ -130,7 +130,7 @@ const SidebarProvider = React.forwardRef<
 
 		return (
 			<SidebarContext.Provider value={contextValue}>
-				<TooltipProvider delayDuration={0}>
+				<TooltipProvider delay={0}>
 					<div
 						style={
 							{
@@ -445,47 +445,47 @@ SidebarGroup.displayName = 'SidebarGroup';
 
 const SidebarGroupLabel = React.forwardRef<
 	HTMLDivElement,
-	React.ComponentProps<'div'> & { asChild?: boolean }
->(({ className, asChild = false, ...props }, ref) => {
-	const Comp = asChild ? Slot.Root : 'div';
-
-	return (
-		<Comp
-			ref={ref}
-			data-sidebar="group-label"
-			className={cn(
+	React.ComponentProps<'div'> & { render?: useRender.RenderProp }
+>(({ className, render, ...props }, ref) =>
+	useRender({
+		render,
+		ref,
+		defaultTagName: 'div',
+		props: {
+			'data-sidebar': 'group-label',
+			className: cn(
 				'flex h-7 shrink-0 items-center rounded-md px-2.5 font-medium text-[11px] text-sidebar-foreground/65 uppercase tracking-[0.03em] outline-none ring-sidebar-ring transition-[margin,opacity] duration-200 ease-linear focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0',
 				'group-data-[collapsible=icon]:-mt-8 group-data-[collapsible=icon]:opacity-0',
 				className,
-			)}
-			{...props}
-		/>
-	);
-});
+			),
+			...props,
+		},
+	}),
+);
 
 SidebarGroupLabel.displayName = 'SidebarGroupLabel';
 
 const SidebarGroupAction = React.forwardRef<
 	HTMLButtonElement,
-	React.ComponentProps<'button'> & { asChild?: boolean }
->(({ className, asChild = false, ...props }, ref) => {
-	const Comp = asChild ? Slot.Root : 'button';
-
-	return (
-		<Comp
-			ref={ref}
-			data-sidebar="group-action"
-			className={cn(
+	React.ComponentProps<'button'> & { render?: useRender.RenderProp }
+>(({ className, render, ...props }, ref) =>
+	useRender({
+		render,
+		ref,
+		defaultTagName: 'button',
+		props: {
+			'data-sidebar': 'group-action',
+			className: cn(
 				'absolute top-3.5 right-3 flex aspect-square w-5 items-center justify-center rounded-md p-0 text-sidebar-foreground outline-none ring-sidebar-ring transition-transform hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0',
 				// Increases the hit area of the button on mobile.
 				'after:absolute after:-inset-2 after:md:hidden',
 				'group-data-[collapsible=icon]:hidden',
 				className,
-			)}
-			{...props}
-		/>
-	);
-});
+			),
+			...props,
+		},
+	}),
+);
 
 SidebarGroupAction.displayName = 'SidebarGroupAction';
 
@@ -531,39 +531,37 @@ const SidebarMenuItem = React.forwardRef<
 
 SidebarMenuItem.displayName = 'SidebarMenuItem';
 
-const sidebarMenuButtonVariants = cva(
-	'peer/menu-button flex w-full items-center gap-2.5 overflow-hidden rounded-md px-2.5 text-left text-[15px] text-sidebar-foreground/80 outline-none ring-sidebar-ring transition-[width,height,padding,box-shadow,color,background-color] hover:bg-sidebar-accent/65 hover:text-sidebar-foreground focus-visible:ring-2 active:bg-sidebar-accent/75 active:text-sidebar-foreground disabled:pointer-events-none disabled:opacity-50 group-has-[[data-sidebar=menu-action]]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-background data-[active=true]:font-medium data-[active=true]:text-foreground data-[active=true]:shadow-[var(--borders-base)] data-[state=open]:bg-sidebar-accent/50 group-data-[collapsible=icon]:!size-8 group-data-[collapsible=icon]:!p-2 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-sidebar-foreground/70 data-[active=true]:[&>svg]:text-foreground',
-	{
-		variants: {
-			variant: {
-				default: 'hover:bg-sidebar-accent/65 hover:text-sidebar-foreground',
-				outline:
-					'bg-background shadow-[var(--borders-base)] hover:bg-sidebar-accent/65 hover:text-sidebar-foreground',
-			},
-			size: {
-				default: 'h-9',
-				sm: 'h-8 text-[13px]',
-				lg: 'h-10 text-sm group-data-[collapsible=icon]:!p-0',
-			},
+const sidebarMenuButtonVariants = tv({
+	base: 'peer/menu-button flex w-full items-center gap-2.5 overflow-hidden rounded-md px-2.5 text-left text-[15px] text-sidebar-foreground/80 outline-none ring-sidebar-ring transition-[width,height,padding,box-shadow,color,background-color] hover:bg-sidebar-accent/65 hover:text-sidebar-foreground focus-visible:ring-2 active:bg-sidebar-accent/75 active:text-sidebar-foreground disabled:pointer-events-none disabled:opacity-50 group-has-[[data-sidebar=menu-action]]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-background data-[active=true]:font-medium data-[active=true]:text-foreground data-[active=true]:shadow-[var(--borders-base)] data-[state=open]:bg-sidebar-accent/50 group-data-[collapsible=icon]:!size-8 group-data-[collapsible=icon]:!p-2 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-sidebar-foreground/70 data-[active=true]:[&>svg]:text-foreground',
+	variants: {
+		variant: {
+			default: 'hover:bg-sidebar-accent/65 hover:text-sidebar-foreground',
+			outline:
+				'bg-background shadow-[var(--borders-base)] hover:bg-sidebar-accent/65 hover:text-sidebar-foreground',
 		},
-		defaultVariants: {
-			variant: 'default',
-			size: 'default',
+		size: {
+			default: 'h-9',
+			sm: 'h-8 text-[13px]',
+			lg: 'h-10 text-sm group-data-[collapsible=icon]:!p-0',
 		},
 	},
-);
+	defaultVariants: {
+		variant: 'default',
+		size: 'default',
+	},
+});
 
 const SidebarMenuButton = React.forwardRef<
 	HTMLButtonElement,
 	React.ComponentProps<'button'> & {
-		asChild?: boolean;
+		render?: useRender.RenderProp;
 		isActive?: boolean;
 		tooltip?: string | React.ComponentProps<typeof TooltipContent>;
 	} & VariantProps<typeof sidebarMenuButtonVariants>
 >(
 	(
 		{
-			asChild = false,
+			render,
 			isActive = false,
 			variant = 'default',
 			size = 'default',
@@ -573,19 +571,21 @@ const SidebarMenuButton = React.forwardRef<
 		},
 		ref,
 	) => {
-		const Comp = asChild ? Slot.Root : 'button';
 		const { isMobile, state } = useSidebar();
 
-		const button = (
-			<Comp
-				ref={ref}
-				data-sidebar="menu-button"
-				data-size={size}
-				data-active={isActive}
-				className={cn(sidebarMenuButtonVariants({ variant, size }), className)}
-				{...props}
-			/>
-		);
+		// Cast: useRender returns ReactElement<unknown>, but Tooltip's render prop wants indexable props.
+		const button = useRender({
+			render,
+			ref,
+			defaultTagName: 'button',
+			props: {
+				'data-sidebar': 'menu-button',
+				'data-size': size,
+				'data-active': isActive,
+				className: cn(sidebarMenuButtonVariants({ variant, size }), className),
+				...props,
+			},
+		}) as React.ReactElement<Record<string, unknown>>;
 
 		if (!tooltip) {
 			return button;
@@ -599,7 +599,7 @@ const SidebarMenuButton = React.forwardRef<
 
 		return (
 			<Tooltip>
-				<TooltipTrigger asChild>{button}</TooltipTrigger>
+				<TooltipTrigger render={button} />
 				<TooltipContent
 					side="right"
 					align="center"
@@ -616,17 +616,17 @@ SidebarMenuButton.displayName = 'SidebarMenuButton';
 const SidebarMenuAction = React.forwardRef<
 	HTMLButtonElement,
 	React.ComponentProps<'button'> & {
-		asChild?: boolean;
+		render?: useRender.RenderProp;
 		showOnHover?: boolean;
 	}
->(({ className, asChild = false, showOnHover = false, ...props }, ref) => {
-	const Comp = asChild ? Slot.Root : 'button';
-
-	return (
-		<Comp
-			ref={ref}
-			data-sidebar="menu-action"
-			className={cn(
+>(({ className, render, showOnHover = false, ...props }, ref) =>
+	useRender({
+		render,
+		ref,
+		defaultTagName: 'button',
+		props: {
+			'data-sidebar': 'menu-action',
+			className: cn(
 				'absolute top-1.5 right-1 flex aspect-square w-5 items-center justify-center rounded-md p-0 text-sidebar-foreground outline-none ring-sidebar-ring transition-transform hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 peer-hover/menu-button:text-sidebar-accent-foreground [&>svg]:size-4 [&>svg]:shrink-0',
 				// Increases the hit area of the button on mobile.
 				'after:absolute after:-inset-2 after:md:hidden',
@@ -637,11 +637,11 @@ const SidebarMenuAction = React.forwardRef<
 				showOnHover &&
 					'group-focus-within/menu-item:opacity-100 group-hover/menu-item:opacity-100 data-[state=open]:opacity-100 peer-data-[active=true]/menu-button:text-sidebar-accent-foreground md:opacity-0',
 				className,
-			)}
-			{...props}
-		/>
-	);
-});
+			),
+			...props,
+		},
+	}),
+);
 
 SidebarMenuAction.displayName = 'SidebarMenuAction';
 
@@ -734,31 +734,31 @@ SidebarMenuSubItem.displayName = 'SidebarMenuSubItem';
 const SidebarMenuSubButton = React.forwardRef<
 	HTMLAnchorElement,
 	React.ComponentProps<'a'> & {
-		asChild?: boolean;
+		render?: useRender.RenderProp;
 		size?: 'sm' | 'md';
 		isActive?: boolean;
 	}
->(({ asChild = false, size = 'md', isActive, className, ...props }, ref) => {
-	const Comp = asChild ? Slot.Root : 'a';
-
-	return (
-		<Comp
-			ref={ref}
-			data-sidebar="menu-sub-button"
-			data-size={size}
-			data-active={isActive}
-			className={cn(
+>(({ render, size = 'md', isActive, className, ...props }, ref) =>
+	useRender({
+		render,
+		ref,
+		defaultTagName: 'a',
+		props: {
+			'data-sidebar': 'menu-sub-button',
+			'data-size': size,
+			'data-active': isActive,
+			className: cn(
 				'flex h-8 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-md px-2.5 text-sidebar-foreground/75 outline-none ring-sidebar-ring hover:bg-sidebar-accent/55 hover:text-sidebar-foreground focus-visible:ring-2 active:bg-sidebar-accent/70 active:text-sidebar-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0',
 				'data-[active=true]:bg-background data-[active=true]:text-foreground data-[active=true]:shadow-[var(--borders-base)]',
 				size === 'sm' && 'text-xs',
 				size === 'md' && 'text-sm',
 				'group-data-[collapsible=icon]:hidden',
 				className,
-			)}
-			{...props}
-		/>
-	);
-});
+			),
+			...props,
+		},
+	}),
+);
 
 SidebarMenuSubButton.displayName = 'SidebarMenuSubButton';
 

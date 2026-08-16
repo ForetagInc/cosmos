@@ -3,6 +3,7 @@ import {
 	DropdownMenu,
 	DropdownMenuCheckboxItem,
 	DropdownMenuContent,
+	DropdownMenuGroup,
 	DropdownMenuItem,
 	DropdownMenuLabel,
 	DropdownMenuSeparator,
@@ -23,17 +24,20 @@ type Story = StoryObj;
 export const Default: Story = {
 	render: () => (
 		<DropdownMenu>
-			<DropdownMenuTrigger asChild>
-				<Button variant="outline">Options</Button>
+			<DropdownMenuTrigger render={<Button variant="outline" />}>
+				Options
 			</DropdownMenuTrigger>
 			<DropdownMenuContent>
-				<DropdownMenuLabel>Workspace</DropdownMenuLabel>
-				<DropdownMenuSeparator />
-				<DropdownMenuItem>
-					Settings
-					<DropdownMenuShortcut>⌘,</DropdownMenuShortcut>
-				</DropdownMenuItem>
-				<DropdownMenuItem>Invite members</DropdownMenuItem>
+				{/* A label describes its group, so it must sit inside DropdownMenuGroup. */}
+				<DropdownMenuGroup>
+					<DropdownMenuLabel>Workspace</DropdownMenuLabel>
+					<DropdownMenuSeparator />
+					<DropdownMenuItem>
+						Settings
+						<DropdownMenuShortcut>⌘,</DropdownMenuShortcut>
+					</DropdownMenuItem>
+					<DropdownMenuItem>Invite members</DropdownMenuItem>
+				</DropdownMenuGroup>
 				<DropdownMenuSeparator />
 				<DropdownMenuItem>Sign out</DropdownMenuItem>
 			</DropdownMenuContent>
@@ -47,8 +51,8 @@ export const WithCheckboxes: Story = {
 
 		return (
 			<DropdownMenu>
-				<DropdownMenuTrigger asChild>
-					<Button variant="outline">Filters</Button>
+				<DropdownMenuTrigger render={<Button variant="outline" />}>
+					Filters
 				</DropdownMenuTrigger>
 				<DropdownMenuContent>
 					<DropdownMenuCheckboxItem

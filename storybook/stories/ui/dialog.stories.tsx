@@ -24,9 +24,7 @@ type Story = StoryObj;
 export const WithForm: Story = {
 	render: () => (
 		<Dialog>
-			<DialogTrigger asChild>
-				<Button>Rename workspace</Button>
-			</DialogTrigger>
+			<DialogTrigger render={<Button />}>Rename workspace</DialogTrigger>
 			<DialogContent>
 				<DialogHeader>
 					<DialogTitle>Rename workspace</DialogTitle>
@@ -39,8 +37,8 @@ export const WithForm: Story = {
 					<Input id="workspace-name" defaultValue="Foretag" />
 				</div>
 				<DialogFooter>
-					<DialogClose asChild>
-						<Button variant="outline">Cancel</Button>
+					<DialogClose render={<Button variant="outline" />}>
+						Cancel
 					</DialogClose>
 					<Button>Save</Button>
 				</DialogFooter>

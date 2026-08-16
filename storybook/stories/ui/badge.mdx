@@ -1,0 +1,16 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import * as BadgeStories from './badge.stories';
+
+{/* `of` attaches these docs to the existing Primitives/Badge entry instead of creating a second root. */}
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+Badges label status inline — order state, environment, plan tier. They are
+presentational only: they carry no interaction and no ARIA role, so pair one
+with adjacent text when the colour alone would carry the meaning.
+
+<Canvas of={BadgeStories.Default} />
+
+<Controls of={BadgeStories.Default} />

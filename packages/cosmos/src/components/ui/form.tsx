@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { type Label as LabelPrimitive, Slot } from 'radix-ui';
+import { useRender } from '@base-ui-components/react/use-render';
 import {
 	Controller,
 	FormProvider,
@@ -86,8 +86,8 @@ const FormItem = React.forwardRef<
 FormItem.displayName = 'FormItem';
 
 const FormLabel = React.forwardRef<
-	React.ElementRef<typeof LabelPrimitive.Root>,
-	React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
+	HTMLLabelElement,
+	React.ComponentPropsWithoutRef<typeof Label>
 >(({ className, ...props }, ref) => {
 	const { error, formItemId } = useFormField();
 
@@ -103,25 +103,26 @@ const FormLabel = React.forwardRef<
 FormLabel.displayName = 'FormLabel';
 
 const FormControl = React.forwardRef<
-	React.ElementRef<typeof Slot.Slot>,
-	React.ComponentPropsWithoutRef<typeof Slot.Slot>
->(({ ...props }, ref) => {
+	HTMLElement,
+	{ render?: useRender.RenderProp; children?: React.ReactElement }
+>(({ render, children, ...props }, ref) => {
 	const { error, formItemId, formDescriptionId, formMessageId } =
 		useFormField();
 
-	return (
-		<Slot.Slot
-			ref={ref}
-			id={formItemId}
-			aria-describedby={
-				!error
-					? `${formDescriptionId}`
-					: `${formDescriptionId} ${formMessageId}`
-			}
-			aria-invalid={!!error}
-			{...props}
-		/>
-	);
+	return useRender({
+		// `children` keeps the familiar <FormControl><Input /></FormControl> shape.
+		render: render ?? (children as useRender.RenderProp),
+		ref,
+		defaultTagName: 'div',
+		props: {
+			id: formItemId,
+			'aria-describedby': !error
+				? `${formDescriptionId}`
+				: `${formDescriptionId} ${formMessageId}`,
+			'aria-invalid': !!error,
+			...props,
+		},
+	});
 });
 FormControl.displayName = 'FormControl';
 

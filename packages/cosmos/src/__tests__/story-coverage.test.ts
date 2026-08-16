@@ -1,9 +1,12 @@
 import { readdirSync } from 'node:fs';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, test } from 'vitest';
 
-const componentsDir = join(process.cwd(), 'src/components');
-const storiesDir = join(process.cwd(), '../../storybook/stories');
+// Resolved from this file, not process.cwd(), so the suite passes from any directory.
+const packageRoot = join(dirname(fileURLToPath(import.meta.url)), '../..');
+const componentsDir = join(packageRoot, 'src/components');
+const storiesDir = join(packageRoot, '../../storybook/stories');
 
 function storyNames(dir: string): string[] {
 	return readdirSync(dir, { recursive: true, encoding: 'utf8' })

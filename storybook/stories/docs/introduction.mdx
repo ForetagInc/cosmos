@@ -1,0 +1,82 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Getting Started/Introduction" />
+
+# Cosmos
+
+Cosmos is Foretag's design system: a set of React primitives that ship the
+tokens, themes and behaviour our products share, so a screen looks and behaves
+the same wherever it is built.
+
+It is deliberately **primitives only**. Anything product-specific — an
+assistant composer, a POS keypad, a kanban board — belongs in the app that owns
+it, not here.
+
+## What's in the box
+
+| What | Detail |
+| --- | --- |
+| **43 primitives** | Buttons, inputs, overlays, navigation and data-display components |
+| **4 themes** | Marble, Graphene, Euclid and Doomsday, with light/dark where supported |
+| **Design tokens** | Semantic CSS variables that every primitive reads from |
+
+## How it's built
+
+- **[Base UI](https://base-ui.com)** supplies the unstyled, accessible behaviour
+  — focus management, keyboard interaction, positioning and ARIA wiring.
+- **Tailwind CSS v4** applies the styling, always through semantic tokens
+  (`bg-background`, `text-foreground`) rather than raw colour values.
+- **[Tailwind Variants](https://www.tailwind-variants.org)** defines variants, so
+  `size` and `variant` are typed props rather than class-name soup at the call
+  site, and conflicting utilities are merged instead of fighting each other.
+
+Two of these are worth knowing before you write code, because they differ from
+the shadcn/Radix conventions you may be used to.
+
+### Composition uses `render`, not `asChild`
+
+To render a primitive as a different element, pass an element to `render`:
+
+```tsx
+<DialogTrigger render={<Button variant="outline" />}>
+  Open settings
+</DialogTrigger>
+```
+
+This is Base UI's convention. There is no `asChild` prop, and no `Slot`.
+
+### Variants are typed props
+
+Size and appearance are props, not classes you assemble yourself:
+
+```tsx
+<Button variant="danger" size="lg">Delete</Button>
+```
+
+Each component declares those with `tv`, and exports the variant function
+(`buttonVariants`, `badgeVariants`, …) if you need the class string directly.
+Passing `className` still works — Tailwind Variants merges it, so your override
+wins over the variant's default rather than landing in a specificity fight.
+
+### Icons are a font, not components
+
+Icons come from `@tabler/icons-webfont` and are written as an `<i>` with a
+class:
+
+```tsx
+<Button size="icon" aria-label="Refresh">
+  <i className="ti ti-refresh" />
+</Button>
+```
+
+Icons are decorative by default, so give the interactive element an
+`aria-label` whenever the icon is the only content.
+
+## Finding your way around
+
+**Getting Started** covers installing the package and rendering your first
+component. **Foundations** documents theming and the token layer. **Primitives**
+is the component reference — every component has a story, and the ones with
+variants expose them as live controls in the **Controls** panel.
+
+Use the paintbrush in the toolbar to preview any story in a different theme.

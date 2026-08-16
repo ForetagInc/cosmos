@@ -1,21 +1,19 @@
-import { cva, type VariantProps } from 'class-variance-authority';
+import { tv, type VariantProps } from 'tailwind-variants';
 import * as React from 'react';
 import { cn } from '../utils';
 
-const textareaVariants = cva(
-	'caret-foreground bg-[var(--input-bg)] hover:bg-[var(--input-bg-hover)] border-0 shadow-[var(--input-shadow)] text-[var(--input-fg)] transition-[color,background-color,border-color,box-shadow] relative w-full appearance-none rounded-md outline-none ring-0 resize-y',
-	{
-		variants: {
-			size: {
-				base: 'min-h-20 px-2 py-1.5 text-sm placeholder:text-sm',
-				small: 'min-h-16 px-2 py-1 text-xs placeholder:text-xs',
-			},
-		},
-		defaultVariants: {
-			size: 'base',
+const textareaVariants = tv({
+	base: 'caret-foreground bg-[var(--input-bg)] hover:bg-[var(--input-bg-hover)] border-0 shadow-[var(--input-shadow)] text-[var(--input-fg)] transition-[color,background-color,border-color,box-shadow] relative w-full appearance-none rounded-md outline-none ring-0 resize-y',
+	variants: {
+		size: {
+			base: 'min-h-20 px-2 py-1.5 text-sm placeholder:text-sm',
+			small: 'min-h-16 px-2 py-1 text-xs placeholder:text-xs',
 		},
 	},
-);
+	defaultVariants: {
+		size: 'base',
+	},
+});
 
 interface TextareaProps
 	extends React.ComponentProps<'textarea'>,

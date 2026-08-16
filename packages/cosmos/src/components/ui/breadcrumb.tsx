@@ -1,4 +1,4 @@
-import { Slot } from 'radix-ui';
+import { useRender } from '@base-ui-components/react/use-render';
 import * as React from 'react';
 
 import { cn } from '../utils';
@@ -43,19 +43,20 @@ BreadcrumbItem.displayName = 'BreadcrumbItem';
 const BreadcrumbLink = React.forwardRef<
 	HTMLAnchorElement,
 	React.ComponentPropsWithoutRef<'a'> & {
-		asChild?: boolean;
+		/** Render as a different element, e.g. a router link. */
+		render?: useRender.RenderProp;
 	}
->(({ asChild, className, ...props }, ref) => {
-	const Comp = asChild ? Slot.Root : 'a';
-
-	return (
-		<Comp
-			ref={ref}
-			className={cn('transition-colors hover:text-foreground', className)}
-			{...props}
-		/>
-	);
-});
+>(({ render, className, ...props }, ref) =>
+	useRender({
+		render,
+		ref,
+		defaultTagName: 'a',
+		props: {
+			className: cn('transition-colors hover:text-foreground', className),
+			...props,
+		},
+	}),
+);
 
 BreadcrumbLink.displayName = 'BreadcrumbLink';
 
