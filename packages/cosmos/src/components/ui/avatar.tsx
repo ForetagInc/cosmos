@@ -5,10 +5,13 @@ import type * as React from 'react';
 import { cn } from '../utils';
 
 const avatarVariants = tv({
-	base: 'relative inline-flex shrink-0 items-center justify-center overflow-hidden border border-ui-border-base bg-background p-0.5 text-foreground shadow-[0_1px_2px_rgb(0_0_0_/_0.08)]',
+	base: 'relative inline-flex shrink-0 items-center justify-center overflow-hidden border border-ui-border-base bg-background p-(--avatar-padding) text-foreground shadow-[0_1px_2px_rgb(0_0_0_/_0.08)] [--avatar-padding:2px]',
 	variants: {
 		variant: {
-			square: 'rounded-md [--avatar-inner-radius:calc(var(--radius)-3px)]',
+			// Inner radius is concentric with the outer one: outer radius minus the
+			// padding that separates them, so the gap stays even around the curve.
+			square:
+				'rounded-md [--avatar-inner-radius:calc(var(--radius-md)-var(--avatar-padding))]',
 			circle: 'rounded-full [--avatar-inner-radius:9999px]',
 		},
 		size: {
@@ -45,7 +48,7 @@ function AvatarImage({
 	return (
 		<AvatarPrimitive.Image
 			className={cn(
-				'aspect-square size-full rounded-[--avatar-inner-radius] object-cover',
+				'aspect-square size-full rounded-(--avatar-inner-radius) object-cover',
 				className,
 			)}
 			{...props}
@@ -60,7 +63,7 @@ function AvatarFallback({
 	return (
 		<AvatarPrimitive.Fallback
 			className={cn(
-				'flex size-full items-center justify-center rounded-[--avatar-inner-radius] bg-muted font-medium text-muted-foreground',
+				'flex size-full items-center justify-center rounded-(--avatar-inner-radius) bg-muted font-medium text-muted-foreground',
 				className,
 			)}
 			{...props}
