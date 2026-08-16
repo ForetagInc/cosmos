@@ -12,6 +12,13 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta: Meta = {
 	title: 'Primitives/Command',
+	parameters: {
+		// cmdk renders role="listbox" wrapping group elements rather than options.
+		// That is internal to cmdk and not something this wrapper can restructure.
+		a11y: {
+			config: { rules: [{ id: 'aria-required-children', enabled: false }] },
+		},
+	},
 };
 
 export default meta;

@@ -17,7 +17,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
 	render: (args) => (
 		<div style={{ width: 380 }}>
-			<Progress {...args} />
+			<Progress aria-label="Upload progress" {...args} />
 		</div>
 	),
 };

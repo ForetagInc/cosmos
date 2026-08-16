@@ -1,4 +1,4 @@
-import { Label, Switch } from '@foretag/cosmos';
+import { Field, FieldLabel, Switch } from '@foretag/cosmos';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
@@ -10,28 +10,25 @@ export default meta;
 
 type Story = StoryObj;
 
+// Switch renders as a span, so Field is what gives it an accessible name.
 export const WithLabel: Story = {
 	render: () => {
 		const [enabled, setEnabled] = useState(true);
 
 		return (
-			<div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-				<Switch
-					id="auto-print"
-					checked={enabled}
-					onCheckedChange={setEnabled}
-				/>
-				<Label htmlFor="auto-print">Auto-print receipts</Label>
-			</div>
+			<Field orientation="horizontal">
+				<Switch checked={enabled} onCheckedChange={setEnabled} />
+				<FieldLabel>Auto-print receipts</FieldLabel>
+			</Field>
 		);
 	},
 };
 
 export const Disabled: Story = {
 	render: () => (
-		<div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-			<Switch id="locked-toggle" disabled />
-			<Label htmlFor="locked-toggle">Requires an upgrade</Label>
-		</div>
+		<Field orientation="horizontal">
+			<Switch disabled />
+			<FieldLabel>Requires an upgrade</FieldLabel>
+		</Field>
 	),
 };

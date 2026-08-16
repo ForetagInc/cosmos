@@ -1,8 +1,9 @@
-import { Label } from './label';
-import { Separator } from './separator';
-import { tv, type VariantProps } from 'tailwind-variants';
+import { Field as FieldPrimitive } from '@base-ui-components/react/field';
 import { useMemo } from 'react';
+import { tv, type VariantProps } from 'tailwind-variants';
 import { cn } from '../utils';
+import { labelVariants } from './label';
+import { Separator } from './separator';
 
 function FieldSet({ className, ...props }: React.ComponentProps<'fieldset'>) {
 	return (
@@ -73,13 +74,17 @@ const fieldVariants = tv({
 	},
 });
 
+// Base UI's Field.Root is what associates the label with the control inside it.
+// Checkbox, Switch and Radio render as spans, which `<label htmlFor>` cannot name,
+// so this context is the only thing giving them an accessible name.
 function Field({
 	className,
 	orientation = 'vertical',
 	...props
-}: React.ComponentProps<'fieldset'> & VariantProps<typeof fieldVariants>) {
+}: React.ComponentProps<typeof FieldPrimitive.Root> &
+	VariantProps<typeof fieldVariants>) {
 	return (
-		<fieldset
+		<FieldPrimitive.Root
 			data-slot="field"
 			data-orientation={orientation}
 			className={cn(fieldVariants({ orientation }), className)}
@@ -101,19 +106,22 @@ function FieldContent({ className, ...props }: React.ComponentProps<'div'>) {
 	);
 }
 
+/** Shared so Choicebox can wear the same card styling on a plain <label>. */
+const fieldLabelClass = cn(
+	labelVariants(),
+	'group/field-label peer/field-label flex w-fit gap-2 leading-snug group-data-[disabled=true]/field:opacity-50',
+	'has-[>[data-slot=field]]:w-full has-[>[data-slot=field]]:flex-col has-[>[data-slot=field]]:rounded-md has-[>[data-slot=field]]:border *:data-[slot=field]:p-4',
+	'has-data-[state=checked]:border-primary has-data-[state=checked]:bg-primary/5 dark:has-data-[state=checked]:bg-primary/10',
+);
+
 function FieldLabel({
 	className,
 	...props
-}: React.ComponentProps<typeof Label>) {
+}: React.ComponentProps<typeof FieldPrimitive.Label>) {
 	return (
-		<Label
+		<FieldPrimitive.Label
 			data-slot="field-label"
-			className={cn(
-				'group/field-label peer/field-label flex w-fit gap-2 leading-snug group-data-[disabled=true]/field:opacity-50',
-				'has-[>[data-slot=field]]:w-full has-[>[data-slot=field]]:flex-col has-[>[data-slot=field]]:rounded-md has-[>[data-slot=field]]:border *:data-[slot=field]:p-4',
-				'has-data-[state=checked]:border-primary has-data-[state=checked]:bg-primary/5 dark:has-data-[state=checked]:bg-primary/10',
-				className,
-			)}
+			className={cn(fieldLabelClass, className)}
 			{...props}
 		/>
 	);
@@ -227,6 +235,7 @@ function FieldError({
 
 export {
 	Field,
+	fieldLabelClass,
 	FieldContent,
 	FieldDescription,
 	FieldError,

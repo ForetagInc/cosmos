@@ -54,7 +54,7 @@
 	--ui-fg-subtle: color-mix(
 		in oklab,
 		hsl(var(--theme-sidebar-foreground)),
-		transparent 22%
+		transparent 15%
 	);
 
 	--button-primary-bg: hsl(224 17% 13%);

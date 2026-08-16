@@ -35,7 +35,7 @@ export const Grouped: Story = {
 	render: (args) => (
 		<div style={{ width: 280 }}>
 			<Select {...args} items={teammates} defaultValue="ada">
-				<SelectTrigger>
+				<SelectTrigger aria-label="Assignee">
 					<SelectValue placeholder="Select a teammate" />
 				</SelectTrigger>
 				<SelectContent>

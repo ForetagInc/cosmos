@@ -13,7 +13,7 @@
 	--theme-secondary: 240 5% 96%;
 	--theme-secondary-foreground: 240 6% 10%;
 	--theme-muted: 240 5% 96%;
-	--theme-muted-foreground: 240 4% 46%;
+	--theme-muted-foreground: 240 4% 45%;
 	--theme-accent: 240 5% 96%;
 	--theme-accent-foreground: 240 6% 10%;
 	--theme-destructive: 0 72% 51%;
@@ -141,7 +141,7 @@
 	--ui-fg-subtle: color-mix(
 		in oklab,
 		hsl(var(--theme-sidebar-foreground)),
-		transparent 22%
+		transparent 15%
 	);
 
 	--button-primary-bg: hsl(224 17% 13%);

@@ -34,8 +34,10 @@ export const Stepped: Story = {
 		const [weight, setWeight] = useState(2.5);
 
 		return (
-			<div style={{ width: 220 }}>
+			<div style={{ width: 220, display: 'grid', gap: 8 }}>
+				<Label htmlFor="weight">Weight (kg)</Label>
 				<InputNumber
+					id="weight"
 					value={weight}
 					onValueChange={setWeight}
 					step={0.5}

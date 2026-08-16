@@ -8,9 +8,10 @@ import {
 	Field,
 	FieldContent,
 	FieldDescription,
-	FieldLabel,
+	fieldLabelClass,
 	FieldTitle,
 } from './field';
+import { Label } from './label';
 import { RadioGroup, RadioGroupItem } from './radio-group';
 import { cn } from '../utils';
 
@@ -58,11 +59,13 @@ export const ChoiceboxItem = ({
 	labelClassName,
 }: ChoiceboxItemProps) => (
 	<ChoiceboxItemContext.Provider value={{ value, id }}>
-		<FieldLabel htmlFor={id} className={labelClassName}>
+		{/* A plain label: Base UI's Field.Label must live inside Field.Root, but the
+		    Choicebox card wraps it. */}
+		<Label htmlFor={id} className={cn(fieldLabelClass, labelClassName)}>
 			<Field className={className} orientation="horizontal">
 				{children}
 			</Field>
-		</FieldLabel>
+		</Label>
 	</ChoiceboxItemContext.Provider>
 );
 

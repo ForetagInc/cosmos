@@ -59,9 +59,8 @@ const preview: Preview = {
 		},
 
 		a11y: {
-			// Reports violations without failing the run. Switch to 'error' to gate CI
-			// once the outstanding naming and contrast issues are resolved.
-			test: 'todo',
+			// Any axe violation fails the story test run.
+			test: 'error',
 		},
 	},
 	globalTypes: {

@@ -454,7 +454,7 @@ const SidebarGroupLabel = React.forwardRef<
 		props: {
 			'data-sidebar': 'group-label',
 			className: cn(
-				'flex h-7 shrink-0 items-center rounded-md px-2.5 font-medium text-[11px] text-sidebar-foreground/65 uppercase tracking-[0.03em] outline-none ring-sidebar-ring transition-[margin,opacity] duration-200 ease-linear focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0',
+				'flex h-7 shrink-0 items-center rounded-md px-2.5 font-medium text-[11px] text-sidebar-foreground/85 uppercase tracking-[0.03em] outline-none ring-sidebar-ring transition-[margin,opacity] duration-200 ease-linear focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0',
 				'group-data-[collapsible=icon]:-mt-8 group-data-[collapsible=icon]:opacity-0',
 				className,
 			),
@@ -532,7 +532,7 @@ const SidebarMenuItem = React.forwardRef<
 SidebarMenuItem.displayName = 'SidebarMenuItem';
 
 const sidebarMenuButtonVariants = tv({
-	base: 'peer/menu-button flex w-full items-center gap-2.5 overflow-hidden rounded-md px-2.5 text-left text-[15px] text-sidebar-foreground/80 outline-none ring-sidebar-ring transition-[width,height,padding,box-shadow,color,background-color] hover:bg-sidebar-accent/65 hover:text-sidebar-foreground focus-visible:ring-2 active:bg-sidebar-accent/75 active:text-sidebar-foreground disabled:pointer-events-none disabled:opacity-50 group-has-[[data-sidebar=menu-action]]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-background data-[active=true]:font-medium data-[active=true]:text-foreground data-[active=true]:shadow-[var(--borders-base)] data-[state=open]:bg-sidebar-accent/50 group-data-[collapsible=icon]:!size-8 group-data-[collapsible=icon]:!p-2 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-sidebar-foreground/70 data-[active=true]:[&>svg]:text-foreground',
+	base: 'peer/menu-button flex w-full items-center gap-2.5 overflow-hidden rounded-md px-2.5 text-left text-[15px] text-sidebar-foreground/95 outline-none ring-sidebar-ring transition-[width,height,padding,box-shadow,color,background-color] hover:bg-sidebar-accent/65 hover:text-sidebar-foreground focus-visible:ring-2 active:bg-sidebar-accent/75 active:text-sidebar-foreground disabled:pointer-events-none disabled:opacity-50 group-has-[[data-sidebar=menu-action]]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-background data-[active=true]:font-medium data-[active=true]:text-foreground data-[active=true]:shadow-[var(--borders-base)] data-[state=open]:bg-sidebar-accent/50 group-data-[collapsible=icon]:!size-8 group-data-[collapsible=icon]:!p-2 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-sidebar-foreground/85 data-[active=true]:[&>svg]:text-foreground',
 	variants: {
 		variant: {
 			default: 'hover:bg-sidebar-accent/65 hover:text-sidebar-foreground',
@@ -748,7 +748,7 @@ const SidebarMenuSubButton = React.forwardRef<
 			'data-size': size,
 			'data-active': isActive,
 			className: cn(
-				'flex h-8 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-md px-2.5 text-sidebar-foreground/75 outline-none ring-sidebar-ring hover:bg-sidebar-accent/55 hover:text-sidebar-foreground focus-visible:ring-2 active:bg-sidebar-accent/70 active:text-sidebar-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0',
+				'flex h-8 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-md px-2.5 text-sidebar-foreground/90 outline-none ring-sidebar-ring hover:bg-sidebar-accent/55 hover:text-sidebar-foreground focus-visible:ring-2 active:bg-sidebar-accent/70 active:text-sidebar-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0',
 				'data-[active=true]:bg-background data-[active=true]:text-foreground data-[active=true]:shadow-[var(--borders-base)]',
 				size === 'sm' && 'text-xs',
 				size === 'md' && 'text-sm',

@@ -51,13 +51,16 @@ export function Example() {
 | `@foretag/cosmos/styles.css` | Tokens, themes, fonts and Tailwind layers |
 | `@foretag/cosmos/themes` | Theme helpers on their own, without pulling in React components |
 
+The package ships compiled ESM with type declarations, so there is nothing to
+transpile — it works in any bundler without `transpilePackages` or similar.
+
 ## Tailwind consumers
 
-The package ships TypeScript source rather than pre-compiled JS, so Tailwind
-needs to scan it for class names. The package stylesheet already declares its
-own `@source`, so importing `styles.css` is enough in most setups. If you
+Cosmos writes its styles as Tailwind classes, so Tailwind needs to scan the
+package to generate them. The package stylesheet already declares its own
+`@source`, which means importing `styles.css` is enough in most setups. If you
 compile Tailwind separately, point an `@source` at the installed package:
 
 ```css
-@source '../node_modules/@foretag/cosmos/src';
+@source '../node_modules/@foretag/cosmos/dist';
 ```

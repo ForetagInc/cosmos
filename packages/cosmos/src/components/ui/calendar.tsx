@@ -107,7 +107,7 @@ function Calendar({
 				today: cn(defaultClassNames.today, 'rounded-md'),
 				outside: cn(
 					defaultClassNames.outside,
-					'text-muted-foreground opacity-50 aria-selected:bg-accent/40 aria-selected:text-muted-foreground aria-selected:opacity-70',
+					'text-muted-foreground aria-selected:bg-accent/40 aria-selected:text-muted-foreground',
 				),
 				disabled: cn(defaultClassNames.disabled, 'opacity-50'),
 				range_start: cn(defaultClassNames.range_start, 'rounded-l-md'),

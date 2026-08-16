@@ -1,4 +1,4 @@
-import { Label, Slider } from '@foretag/cosmos';
+import { Field, FieldLabel, Slider } from '@foretag/cosmos';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
@@ -37,14 +37,14 @@ export const Default: Story = {
 		const [value, setValue] = useState([40]);
 
 		return (
-			<div style={{ width: 360, display: 'grid', gap: 12 }}>
-				<Label>Stock threshold: {value[0]}</Label>
+			<Field style={{ width: 360, gap: 12 }}>
+				<FieldLabel>Stock threshold: {value[0]}</FieldLabel>
 				<Slider
 					{...args}
 					value={value}
 					onValueChange={(next) => setValue(toValues(next))}
 				/>
-			</div>
+			</Field>
 		);
 	},
 };
@@ -55,16 +55,16 @@ export const Range: Story = {
 		const [value, setValue] = useState([20, 80]);
 
 		return (
-			<div style={{ width: 360, display: 'grid', gap: 12 }}>
-				<Label>
+			<Field style={{ width: 360, gap: 12 }}>
+				<FieldLabel>
 					Price range: £{value[0]} – £{value[1]}
-				</Label>
+				</FieldLabel>
 				<Slider
 					{...args}
 					value={value}
 					onValueChange={(next) => setValue(toValues(next))}
 				/>
-			</div>
+			</Field>
 		);
 	},
 };

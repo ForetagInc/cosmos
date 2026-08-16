@@ -1,4 +1,4 @@
-import { CurrencyInput } from '@foretag/cosmos';
+import { CurrencyInput, Label } from '@foretag/cosmos';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
@@ -25,8 +25,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
 	render: (args) => (
-		<div style={{ width: 280 }}>
-			<CurrencyInput {...args} />
+		<div style={{ width: 280, display: 'grid', gap: 8 }}>
+			<Label htmlFor="unit-price">Unit price</Label>
+			<CurrencyInput id="unit-price" {...args} />
 		</div>
 	),
 };

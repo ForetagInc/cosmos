@@ -1,4 +1,4 @@
-import { Checkbox, Label } from '@foretag/cosmos';
+import { Checkbox, Field, FieldLabel } from '@foretag/cosmos';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
@@ -10,28 +10,29 @@ export default meta;
 
 type Story = StoryObj;
 
+// Checkbox renders as a span, which `<label htmlFor>` cannot name — Field is what
+// associates the label with the control.
 export const WithLabel: Story = {
 	render: () => {
 		const [checked, setChecked] = useState(true);
 
 		return (
-			<div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+			<Field orientation="horizontal">
 				<Checkbox
-					id="newsletter"
 					checked={checked}
 					onCheckedChange={(value) => setChecked(value === true)}
 				/>
-				<Label htmlFor="newsletter">Email me product updates</Label>
-			</div>
+				<FieldLabel>Email me product updates</FieldLabel>
+			</Field>
 		);
 	},
 };
 
 export const Disabled: Story = {
 	render: () => (
-		<div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-			<Checkbox id="locked" disabled checked />
-			<Label htmlFor="locked">Managed by your administrator</Label>
-		</div>
+		<Field orientation="horizontal">
+			<Checkbox disabled checked />
+			<FieldLabel>Managed by your administrator</FieldLabel>
+		</Field>
 	),
 };

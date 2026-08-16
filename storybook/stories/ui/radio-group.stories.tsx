@@ -1,4 +1,4 @@
-import { Label, RadioGroup, RadioGroupItem } from '@foretag/cosmos';
+import { Field, FieldLabel, RadioGroup, RadioGroupItem } from '@foretag/cosmos';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta: Meta = {
@@ -15,17 +15,15 @@ const options = [
 	{ value: 'collection', label: 'Collect in store' },
 ];
 
+// One Field per option: each radio renders as a span and needs its own label association.
 export const Default: Story = {
 	render: () => (
 		<RadioGroup defaultValue="standard" style={{ display: 'grid', gap: 12 }}>
 			{options.map((option) => (
-				<div
-					key={option.value}
-					style={{ display: 'flex', alignItems: 'center', gap: 8 }}
-				>
-					<RadioGroupItem id={option.value} value={option.value} />
-					<Label htmlFor={option.value}>{option.label}</Label>
-				</div>
+				<Field key={option.value} orientation="horizontal">
+					<RadioGroupItem value={option.value} />
+					<FieldLabel>{option.label}</FieldLabel>
+				</Field>
 			))}
 		</RadioGroup>
 	),
