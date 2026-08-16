@@ -10,7 +10,7 @@
 	],
 	"scripts": {
 		"dev": "bun run dev:storybook",
-		"dev:storybook": "bun run --cwd storybook storybook",
+		"dev:storybook": "bun run build:cosmos && bun run --cwd storybook storybook",
 		"lint": "bunx biome lint .",
 		"format": "bunx biome format --write .",
 		"format:check": "bunx biome format .",
@@ -20,10 +20,10 @@
 		"test": "bun run test:unit && bun run test:stories",
 		"test:unit": "bun run --cwd packages/cosmos test",
 		"test:stories": "bun run build:cosmos && bunx vitest run --project storybook",
-		"build:storybook": "bun run --cwd storybook build-storybook",
-		"build:storybook:cf": "bun run --cwd storybook build-storybook:cf",
+		"build:storybook": "bun run build:cosmos && bun run --cwd storybook build-storybook",
+		"build:storybook:cf": "bun run build:cosmos && bun run --cwd storybook build-storybook:cf",
 		"build:cosmos": "bun run --cwd packages/cosmos build",
-		"build": "bun run build:cosmos && bun run build:storybook",
+		"build": "bun run build:storybook",
 		"ci": "bun run lint && bun run format:check && bun run typecheck && bun run test:unit && bun run build"
 	},
 	"devDependencies": {

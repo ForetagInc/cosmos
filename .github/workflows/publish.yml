@@ -1,0 +1,84 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+        with:
+          bun-version: 1.3.5
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      # A tag that disagrees with the manifest would publish the wrong version.
+      - name: Verify tag matches package version
+        run: |
+          version=$(bun --print "require('./packages/cosmos/package.json').version")
+          tagged="${GITHUB_REF_NAME#v}"
+          if [ "$version" != "$tagged" ]; then
+            echo "Tag $GITHUB_REF_NAME expects version $tagged, but package.json says $version" >&2
+            exit 1
+          fi
+          echo "Publishing @foretag/cosmos@$version"
+
+      # A publish cannot be taken back, so gate it on the same checks as CI.
+      - name: Lint
+        run: bun run lint
+
+      - name: Format check
+        run: bun run format:check
+
+      - name: Typecheck
+        run: bun run typecheck
+
+      - name: Run unit tests
+        run: bun run test:unit
+
+      # typecheck already builds the package; rebuild so dist cannot be stale.
+      - name: Build package
+        run: bun run build:cosmos
+
+      - name: Show tarball contents
+        run: bun pm pack --dry-run
+        working-directory: packages/cosmos
+
+      # A prerelease must not land on the `latest` dist-tag, or `bun add
+      # @foretag/cosmos` would install it for everyone.
+      - name: Resolve dist-tag
+        run: |
+          version=$(bun --print "require('./packages/cosmos/package.json').version")
+          if [[ "$version" == *-* ]]; then
+            tag="${version#*-}"
+            tag="${tag%%.*}"
+          else
+            tag=latest
+          fi
+          echo "Using dist-tag $tag"
+          echo "DIST_TAG=$tag" >> "$GITHUB_ENV"
+
+      - name: Publish
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ -z "$NPM_TOKEN" ]; then
+            echo "NPM_TOKEN secret is not set" >&2
+            exit 1
+          fi
+          # bun publish reads registry auth from .npmrc; keep it out of the workspace.
+          printf '//registry.npmjs.org/:_authToken=%s\n' "$NPM_TOKEN" > "$HOME/.npmrc"
+          bun publish --tag "$DIST_TAG"
+        working-directory: packages/cosmos
