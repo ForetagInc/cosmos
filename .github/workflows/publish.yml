@@ -7,7 +7,8 @@ on:
 
 permissions:
   contents: read
-  # npm signs the provenance attestation with a GitHub OIDC token.
+  # npm exchanges this OIDC token for short-lived publish credentials, and signs
+  # the provenance attestation with it. Trusted publishing does not work without it.
   id-token: write
 
 # Keep in sync with ci.yml and `packageManager` in package.json.
@@ -27,17 +28,6 @@ jobs:
         with:
           bun-version: ${{ env.BUN_VERSION }}
 
-      # Fail before the long build rather than after it. `-z` alone would let a
-      # secret that is only whitespace through, and npm reads that as no auth.
-      - name: Verify NPM_TOKEN is present
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          if [ -z "${NPM_TOKEN//[[:space:]]/}" ]; then
-            echo "NPM_TOKEN secret is missing or blank" >&2
-            exit 1
-          fi
-
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
@@ -52,20 +42,8 @@ jobs:
           fi
           echo "Publishing @foretag/cosmos@$version"
 
-      # A publish cannot be taken back, so gate it on the same checks as CI.
-      - name: Lint
-        run: bun run lint
-
-      - name: Format check
-        run: bun run format:check
-
-      - name: Typecheck
-        run: bun run typecheck
-
-      - name: Run unit tests
-        run: bun run test:unit
-
-      # typecheck already builds the package; rebuild so dist cannot be stale.
+      # Lint, typecheck and tests are not repeated here: the CI workflow runs on
+      # this same push, against the same commit.
       - name: Build package
         run: bun run build:cosmos
 
@@ -83,28 +61,27 @@ jobs:
           echo "Using dist-tag $tag"
           echo "DIST_TAG=$tag" >> "$GITHUB_ENV"
 
-      # npm does the publishing because `bun publish` has no --provenance flag.
-      # Set up last: this points NPM_CONFIG_USERCONFIG at a temp .npmrc, and the
-      # bun steps above should keep resolving config the way CI does.
+      # npm does the publishing because `bun publish` supports neither provenance
+      # nor OIDC. No `registry-url` here on purpose: that writes an `_authToken`
+      # line into the .npmrc, and there is no token to put in it.
       - name: Setup Node
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 24
-          registry-url: https://registry.npmjs.org
+
+      # OIDC trusted publishing needs npm 11.5.1+, which is newer than the npm
+      # bundled with some Node 24 releases.
+      - name: Upgrade npm
+        run: |
+          npm install -g npm@latest
+          npm --version
 
       - name: Show tarball contents
         run: npm pack --dry-run
         working-directory: packages/cosmos
 
-      # Surface a bad token here, with npm's own message, instead of after the
-      # tarball has been built and uploaded.
-      - name: Verify registry auth
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm whoami
-
+      # No NODE_AUTH_TOKEN: npm authenticates via the OIDC token above, against
+      # the trusted publisher configured for @foretag/cosmos on npmjs.com.
       - name: Publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --provenance --tag "$DIST_TAG"
         working-directory: packages/cosmos
